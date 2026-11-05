@@ -4,7 +4,6 @@ import BriefForm from "@/components/BriefForm";
 import PageEffects from "@/components/PageEffects";
 import { ServiceIcon, CheckIcon } from "@/components/Icons";
 import {
-  timeline,
   valueProps,
   packages,
   subscription,
@@ -45,7 +44,7 @@ export default function HomeFr() {
           </a>
           <nav className="nav" aria-label="Navigation principale">
             <a className="nav-link" href="#services">Services</a>
-            <a className="nav-link" href="#experience">Expérience</a>
+            <a className="nav-link" href="#why">Pourquoi nous</a>
             <a className="nav-link" href="#packages">Offres</a>
             <a className="nav-link" href="#faq">FAQ</a>
             <a className="lang-switch" href="/" hrefLang="he">HE</a>
@@ -59,19 +58,19 @@ export default function HomeFr() {
           <HeroBackground />
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow"><span className="eyebrow-dot"></span>Solide expérience en IT et en digital · Tel Aviv</p>
+              <p className="eyebrow"><span className="eyebrow-dot"></span>Agence digitale à Tel Aviv · plus qu'une agence web</p>
               <h1 className="hero-title">
-                <span className="w" style={{ "--i": 0 }}>Une</span>{" "}
-                <span className="w" style={{ "--i": 1 }}>vraie</span>{" "}
-                <span className="w" style={{ "--i": 2 }}>expérience</span>{" "}
-                <span className="w" style={{ "--i": 3 }}>IT,</span>{" "}
-                <span className="w" style={{ "--i": 4 }}>sécurité,</span>{" "}
-                <span className="w hl" style={{ "--i": 5 }}>au service des outils de 2026.</span>
+                <span className="w" style={{ "--i": 0 }}>Pas</span>{" "}
+                <span className="w" style={{ "--i": 1 }}>juste</span>{" "}
+                <span className="w" style={{ "--i": 2 }}>une</span>{" "}
+                <span className="w" style={{ "--i": 3 }}>agence</span>{" "}
+                <span className="w" style={{ "--i": 4 }}>web.</span>{" "}
+                <span className="w hl" style={{ "--i": 5 }}>Une agence qui rend vos idées réelles.</span>
               </h1>
-              <p className="hero-lead">Mazaly Digital met une solide expérience en IT, infrastructures réseau et sécurité informatique au service des outils digitaux les plus actuels : sites, systèmes de gestion, applications, automatisations qui font gagner du temps et agents d'intelligence artificielle. Le tout sous une seule équipe, en hébreu et en français.</p>
+              <p className="hero-lead">Mazaly Digital construit des sites, des CRM, des automatisations, des agents d'intelligence artificielle et du contenu digital pour des entreprises, des organisations et des entrepreneurs. Une seule équipe qui prend votre idée de l'esquisse jusqu'au système qui fonctionne, en hébreu et en français.</p>
               <div className="hero-actions">
                 <span className="mag"><a className="btn btn-mag" href="#brief"><span className="btn-in">Décrire mon projet</span></a></span>
-                <a className="btn btn-quiet" href="#experience"><span className="btn-in">Découvrir l'expérience</span></a>
+                <a className="btn btn-quiet" href="#why"><span className="btn-in">Pourquoi Mazaly Digital</span></a>
               </div>
             </div>
 
@@ -96,61 +95,22 @@ export default function HomeFr() {
             {Array.from({ length: 8 }).map((_, loop) => (
               <span key={loop} style={{ display: "contents" }}>
                 <span className="mq fill">Création de sites</span><span className="mq-dot"></span>
-                <span className="mq">Systèmes de gestion</span><span className="mq-dot"></span>
-                <span className="mq fill">Applications mobiles</span><span className="mq-dot"></span>
-                <span className="mq">Logiciels sur mesure</span><span className="mq-dot"></span>
+                <span className="mq">CRM</span><span className="mq-dot"></span>
                 <span className="mq fill">Automatisations</span><span className="mq-dot"></span>
                 <span className="mq">Agent IA personnel</span><span className="mq-dot"></span>
+                <span className="mq fill">Contenu digital</span><span className="mq-dot"></span>
+                <span className="mq">Applications et logiciels sur mesure</span><span className="mq-dot"></span>
               </span>
             ))}
           </div>
         </div>
 
-        <section className="sec sec-first" id="experience" aria-labelledby="t-experience">
+        <section className="sec sec-first" id="services" aria-labelledby="t-services">
           <i className="orb orb-1" aria-hidden="true"></i>
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-experience">Des infrastructures aux agents d'intelligence artificielle.</h2>
-              <p className="sec-lead">Une solide expérience en IT et en digital, des fondations jusqu'aux outils les plus récents. Chaque étape s'appuie sur la précédente.</p>
-            </div>
-            <ol className="timeline" data-stagger>
-              {timeline.map((t) => (
-                <li className="tl-item" key={t.n}>
-                  <span className="tl-dot" aria-hidden="true"></span>
-                  <span className="tl-n">{t.n}</span>
-                  <h3 className="tl-key">{t.key}</h3>
-                  <p className="tl-text">{t.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="sec sec-alt" aria-labelledby="t-value">
-          <Wave d="M0 58C160 8 320 8 520 44S900 98 1120 52 1340 14 1440 40V90H0Z" />
-          <i className="orb orb-2" aria-hidden="true"></i>
-          <div className="wrap">
-            <div className="sec-head flip rv">
-              <h2 className="sec-title" id="t-value">Des sites et systèmes construits par des gens qui comprennent aussi les infrastructures et la sécurité.</h2>
-              <p className="sec-lead">La combinaison rare d'IT, de sécurité, de développement et d'intelligence artificielle sous un même toit est la valeur ajoutée de Mazaly Digital.</p>
-            </div>
-            <div className="value-grid" data-stagger>
-              {valueProps.map((v) => (
-                <div className={`value-card${v.wide ? " value-card-wide" : ""}`} key={v.title}>
-                  <h3 className="value-title">{v.title}</h3>
-                  <p className="value-text">{v.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="sec" id="services" aria-labelledby="t-services">
-          <Wave d="M0 36C220 86 420 90 640 50S1040-6 1240 34 1400 60 1440 48V90H0Z" />
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-services">Six domaines, une seule équipe.</h2>
-              <p className="sec-lead">Pas besoin de coordonner un développeur, un prestataire de gestion et un fournisseur d'automatisation. Mazaly Digital gère tout, du premier écran à la maintenance.</p>
+              <h2 className="sec-title" id="t-services">Cinq domaines, une seule équipe.</h2>
+              <p className="sec-lead">Pas besoin de coordonner un designer, un développeur, un prestataire CRM et un fournisseur d'automatisation. Mazaly Digital gère tout, de l'idée à la maintenance.</p>
             </div>
             <div className="svc-list" data-stagger>
               {services.map((s) => (
@@ -167,12 +127,31 @@ export default function HomeFr() {
           </div>
         </section>
 
-        <section className="sec sec-alt" aria-labelledby="t-chain">
+        <section className="sec sec-alt" id="why" aria-labelledby="t-why">
           <Wave d="M0 58C160 8 320 8 520 44S900 98 1120 52 1340 14 1440 40V90H0Z" />
+          <i className="orb orb-2" aria-hidden="true"></i>
+          <div className="wrap">
+            <div className="sec-head flip rv">
+              <h2 className="sec-title" id="t-why">Pourquoi Mazaly Digital.</h2>
+              <p className="sec-lead">On ne se contente pas de construire un site. On construit tout le système derrière, pour que votre idée fonctionne vraiment.</p>
+            </div>
+            <div className="value-grid" data-stagger>
+              {valueProps.map((v) => (
+                <div className="value-card" key={v.title}>
+                  <h3 className="value-title">{v.title}</h3>
+                  <p className="value-text">{v.text}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" aria-labelledby="t-chain">
+          <Wave d="M0 36C220 86 420 90 640 50S1040-6 1240 34 1400 60 1440 48V90H0Z" />
           <div className="wrap">
             <div className="sec-head rv">
               <h2 className="sec-title" id="t-chain">Chaque brique parle aux autres.</h2>
-              <p className="sec-lead">L'avantage d'avoir un seul prestataire, c'est que le site, le système, les automatisations et l'agent partagent les mêmes données dès le premier jour.</p>
+              <p className="sec-lead">L'avantage d'avoir un seul prestataire, c'est que le site, le CRM, les automatisations et l'agent partagent les mêmes données dès le premier jour.</p>
             </div>
             <div className="chain-wrap">
               <svg className="chain-svg" viewBox="0 0 1000 240" preserveAspectRatio="none" aria-hidden="true">
@@ -182,7 +161,7 @@ export default function HomeFr() {
               <div className="chain-track" aria-hidden="true"><span className="chain-pulse"></span></div>
               <ol className="chain" data-stagger>
                 <li className="chain-node"><span className="chain-n">1</span><p className="chain-label">Site</p><p className="chain-text">Un visiteur remplit le formulaire de devis.</p></li>
-                <li className="chain-node"><span className="chain-n">2</span><p className="chain-label">Système</p><p className="chain-text">Le contact apparaît dans le pipeline de vente, avec sa source.</p></li>
+                <li className="chain-node"><span className="chain-n">2</span><p className="chain-label">CRM</p><p className="chain-text">Le contact apparaît dans le pipeline de vente, avec sa source.</p></li>
                 <li className="chain-node"><span className="chain-n">3</span><p className="chain-label">Automatisation</p><p className="chain-text">Le devis part et une relance est programmée.</p></li>
                 <li className="chain-node"><span className="chain-n">4</span><p className="chain-label">Agent IA</p><p className="chain-text">Il répond au client sur WhatsApp pour ses questions.</p></li>
               </ol>
@@ -191,7 +170,7 @@ export default function HomeFr() {
           </div>
         </section>
 
-        <section className="sec" id="packages" aria-labelledby="t-packages">
+        <section className="sec sec-alt" id="packages" aria-labelledby="t-packages">
           <Wave d="M0 44C200 90 400 84 640 46S1000-4 1220 38 1390 56 1440 40V90H0Z" />
           <i className="orb orb-3" aria-hidden="true"></i>
           <div className="wrap">
@@ -238,7 +217,7 @@ export default function HomeFr() {
           </div>
         </div>
 
-        <section className="sec sec-alt" id="process" aria-labelledby="t-process">
+        <section className="sec" id="process" aria-labelledby="t-process">
           <Wave d="M0 36C220 86 420 90 640 50S1040-6 1240 34 1400 60 1440 48V90H0Z" />
           <div className="wrap">
             <div className="sec-head flip rv">
@@ -257,12 +236,12 @@ export default function HomeFr() {
           </div>
         </section>
 
-        <section className="sec" aria-labelledby="t-about">
+        <section className="sec sec-alt" aria-labelledby="t-about">
           <Wave d="M0 50C180-4 380 10 600 52S980 96 1200 40 1380 20 1440 56V90H0Z" />
           <div className="wrap about">
             <div className="rv">
               <h2 className="sec-title" id="t-about">Mazaly Digital en un coup d'œil.</h2>
-              <p className="about-text">Mazaly Digital est une agence digitale basée à Tel Aviv, avec une solide expérience en IT et en digital. Elle accompagne les entreprises de l'idée jusqu'au système qui fonctionne : site, système de gestion, application, logiciel, automatisation et agent d'intelligence artificielle, sous une seule équipe.</p>
+              <p className="about-text">Mazaly Digital est une agence digitale basée à Tel Aviv. Elle accompagne les entreprises de l'idée jusqu'au système qui fonctionne : site, CRM, automatisation, agent d'intelligence artificielle et contenu digital, sous une seule équipe.</p>
             </div>
             <dl className="facts rv">
               {facts.map((f) => (
@@ -272,7 +251,7 @@ export default function HomeFr() {
           </div>
         </section>
 
-        <section className="sec sec-alt" id="faq" aria-labelledby="t-faq">
+        <section className="sec" id="faq" aria-labelledby="t-faq">
           <Wave d="M0 44C200 90 400 84 640 46S1000-4 1220 38 1390 56 1440 40V90H0Z" />
           <div className="wrap">
             <div className="sec-head flip rv">
@@ -290,7 +269,7 @@ export default function HomeFr() {
           </div>
         </section>
 
-        <section className="sec" id="brief" aria-labelledby="t-brief">
+        <section className="sec sec-alt" id="brief" aria-labelledby="t-brief">
           <Wave d="M0 30C240 -6 460 14 700 56S1100 92 1280 44 1400 22 1440 34V90H0Z" />
           <div className="wrap">
             <div className="sec-head rv">
@@ -305,7 +284,7 @@ export default function HomeFr() {
       <footer className="foot">
         <Wave d="M0 40C260 94 480 70 720 38S1160-6 1440 50V90H0Z" />
         <div className="wrap foot-cta rv">
-          <h2>Une vraie expérience. Un projet qui démarre maintenant.</h2>
+          <h2>Vous avez une idée. Rendons-la réelle.</h2>
           <p>Un court échange de cadrage, sans engagement, pour comprendre la bonne approche pour votre entreprise.</p>
           <div className="hero-actions">
             <span className="mag"><a className="btn btn-mag" href="#brief"><span className="btn-in">Décrire mon projet</span></a></span>

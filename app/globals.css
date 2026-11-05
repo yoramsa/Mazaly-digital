@@ -192,15 +192,6 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
   100% { border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%; }
 }
 
-.timeline { position: relative; display: flex; flex-direction: column; gap: 0; border-inline-start: 2px solid var(--line); padding: 0; margin: 0; list-style: none; }
-.tl-item { position: relative; padding: 0 0 56px 0; padding-inline-start: 44px; }
-.tl-item:last-child { padding-bottom: 4px; }
-.tl-dot { position: absolute; inset-inline-start: -7px; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); box-shadow: 0 0 0 5px var(--bg), 0 0 18px -2px rgba(var(--net), 0.8); transition: background 0.3s, border-color 0.3s; }
-.tl-item.in .tl-dot { background: var(--accent); }
-.tl-n { font-family: var(--font-display); font-weight: 700; color: transparent; -webkit-text-stroke: 1.5px var(--accent); font-size: 1.5rem; line-height: 1; margin-bottom: 10px; direction: ltr; display: inline-block; }
-.tl-key { font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; margin-bottom: 8px; }
-.tl-text { color: var(--dim); max-width: 56ch; }
-
 .value-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
 .value-card { background: var(--raise); border: 1px solid var(--line); border-radius: 26px; padding: 28px 28px 26px; transition: border-color 0.25s, translate 0.25s; }
 .value-card:hover { border-color: rgba(var(--net), 0.6); translate: 0 -4px; }

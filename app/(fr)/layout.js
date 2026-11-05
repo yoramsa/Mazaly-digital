@@ -16,9 +16,9 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | Agence digitale : sites, systèmes de gestion, apps et IA";
+const title = "Mazaly Digital | Agence digitale : sites, CRM, automatisation, IA et contenu";
 const description =
-  "Mazaly Digital est une agence digitale basée à Tel Aviv, avec une solide expérience en IT, infrastructures réseau et sécurité informatique, au service de la création de sites, systèmes de gestion sur mesure, applications, logiciels sur mesure, automatisations et agents d'intelligence artificielle, en hébreu et en français.";
+  "Mazaly Digital est une agence digitale basée à Tel Aviv — plus qu'une agence web. Nous construisons des sites, des CRM, des automatisations qui font gagner du temps, des agents d'intelligence artificielle et du contenu digital, en hébreu et en français.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -64,14 +64,13 @@ const jsonLd = {
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "Entreprises, organisations et entrepreneurs de tous secteurs et toutes tailles" },
       knowsAbout: [
-        "Infrastructures réseau",
-        "Sécurité informatique",
         "Création de sites",
-        "Systèmes de gestion",
-        "Applications mobiles",
-        "Logiciels sur mesure",
+        "CRM",
         "Automatisation métier",
         "Agents d'intelligence artificielle",
+        "Création de contenu digital",
+        "Applications mobiles",
+        "Logiciels sur mesure",
         "WhatsApp pour entreprises",
       ],
     },
@@ -84,7 +83,7 @@ const jsonLd = {
           name: "Qu'est-ce que Mazaly Digital ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Mazaly Digital est une agence digitale basée à Tel Aviv, avec une solide expérience en IT : infrastructures réseau, sécurité informatique et développement. Elle conçoit et construit des sites, des systèmes de gestion, des applications mobiles, des logiciels sur mesure, des automatisations et des agents d'intelligence artificielle.",
+            text: "Mazaly Digital est une agence digitale basée à Tel Aviv — plus qu'une agence web. Elle construit des sites, des CRM, des automatisations, des agents d'intelligence artificielle et du contenu digital, et accompagne les entreprises de l'idée jusqu'au système qui fonctionne.",
           },
         },
         {
@@ -92,7 +91,7 @@ const jsonLd = {
           name: "Quels services propose Mazaly Digital ?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Six domaines sous une seule équipe : création de sites, systèmes de gestion sur mesure, applications mobiles, logiciels sur mesure, automatisations et agents d'intelligence artificielle personnels.",
+            text: "Cinq domaines sous une seule équipe : création de sites, CRM, automatisations, agents d'intelligence artificielle et contenu digital — et des applications et logiciels sur mesure quand c'est nécessaire.",
           },
         },
         {

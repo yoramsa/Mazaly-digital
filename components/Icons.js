@@ -42,6 +42,13 @@ export function ServiceIcon({ name }) {
           <path d="M14 36C26 36 26 24 34 24" pathLength="1" />
         </svg>
       );
+    case "content":
+      return (
+        <svg viewBox="0 0 48 48" aria-hidden="true">
+          <path d="M30 8 40 18 18 40H8V30z" pathLength="1" />
+          <path d="M26 12l10 10" pathLength="1" />
+        </svg>
+      );
     case "ai":
       return (
         <svg viewBox="0 0 48 48" aria-hidden="true">
