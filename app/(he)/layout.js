@@ -1,5 +1,5 @@
 import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 import { siteUrl } from "@/lib/site";
 
 const display = Frank_Ruhl_Libre({
@@ -16,15 +16,15 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | ניסיון של מעל 20 שנה ב-IT, אבטחה ובינה מלאכותית";
+const title = "Mazaly Digital | סוכנות דיגיטל: אתרים, מערכות ניהול, אפליקציות ובינה מלאכותית";
 const description =
-  "Mazaly Digital היא סוכנות דיגיטל בתל אביב עם ניסיון של מעל 20 שנה בעולם ה-IT, תשתיות רשת ואבטחת מידע, שמביאה אותו לבניית אתרים, CRM, אפליקציות, תוכנה בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית, בעברית ובצרפתית.";
+  "Mazaly Digital היא סוכנות דיגיטל בתל אביב עם ניסיון רחב בעולם ה-IT, תשתיות רשת ואבטחת מידע, שמביאה אותו לבניית אתרים, מערכות ניהול, אפליקציות, תוכנה בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית, בעברית ובצרפתית.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: { he: "/", fr: "/fr" } },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   openGraph: {
     type: "website",
@@ -57,7 +57,7 @@ const jsonLd = {
       name: "Mazaly Digital",
       url: siteUrl,
       description,
-      slogan: "ניסיון של מעל 20 שנה בעולם ה-IT והדיגיטל",
+      slogan: "שותף אחד לכל מה שהוא דיגיטלי",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
       areaServed: { "@type": "Country", name: "ישראל" },
@@ -68,7 +68,7 @@ const jsonLd = {
         "תשתיות רשת",
         "אבטחת מידע",
         "בניית אתרים",
-        "CRM",
+        "מערכות ניהול",
         "אפליקציות מובייל",
         "תוכנה בהתאמה אישית",
         "אוטומציה עסקית",
@@ -80,7 +80,7 @@ const jsonLd = {
         name: "שירותי Mazaly Digital",
         itemListElement: [
           "בניית אתרים",
-          "CRM",
+          "מערכות ניהול מותאמות אישית",
           "אפליקציות מובייל",
           "תוכנה בהתאמה אישית",
           "אוטומציות",
@@ -100,7 +100,7 @@ const jsonLd = {
           name: "מהי Mazaly Digital?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "Mazaly Digital היא סוכנות דיגיטל הפועלת מתל אביב, עם ניסיון של מעל 20 שנה בעולם ה-IT והדיגיטל: תשתיות רשת, אבטחת מידע ופיתוח. היא מתכננת ובונה אתרים, מערכות CRM, אפליקציות מובייל, תוכנות בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית לעסקים, לארגונים וליזמים מכל תחום ומכל גודל.",
+            text: "Mazaly Digital היא סוכנות דיגיטל הפועלת מתל אביב, עם ניסיון רחב בעולם ה-IT: תשתיות רשת, אבטחת מידע ופיתוח. היא מתכננת ובונה אתרים, מערכות ניהול, אפליקציות מובייל, תוכנות בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית לעסקים, לארגונים וליזמים מכל תחום ומכל גודל.",
           },
         },
         {
@@ -108,7 +108,7 @@ const jsonLd = {
           name: "אילו שירותים Mazaly Digital מספקת?",
           acceptedAnswer: {
             "@type": "Answer",
-            text: "שישה תחומים תחת צוות אחד: בניית אתרים, CRM, אפליקציות מובייל, תוכנה בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית אישיים.",
+            text: "שישה תחומים תחת צוות אחד: בניית אתרים, מערכות ניהול מותאמות אישית, אפליקציות מובייל, תוכנה בהתאמה אישית, אוטומציות וסוכני בינה מלאכותית אישיים.",
           },
         },
         {
