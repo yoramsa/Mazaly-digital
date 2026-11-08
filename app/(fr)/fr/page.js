@@ -1,7 +1,7 @@
 import Logo from "@/components/Logo";
 import HeroBackground from "@/components/HeroBackground";
 import ChatDemo from "@/components/ChatDemo";
-import BriefForm from "@/components/BriefForm";
+import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import { ServiceIcon } from "@/components/Icons";
 import { services } from "@/lib/content.fr";
@@ -103,10 +103,10 @@ export default function HomeFr() {
           <i className="orb orb-3" aria-hidden="true"></i>
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-brief">On démarre ?</h2>
-              <p className="sec-lead">Parlez-nous de votre activité en une phrase. Le message se prépare à côté, prêt à envoyer.</p>
+              <h2 className="sec-title" id="t-brief">Prêt à commencer ?</h2>
+              <p className="sec-lead">Quatre questions rapides, et recevez un devis gratuit.</p>
             </div>
-            <BriefForm lang="fr" />
+            <LeadForm lang="fr" page="/fr" />
           </div>
         </section>
       </main>

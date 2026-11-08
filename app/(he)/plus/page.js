@@ -1,5 +1,5 @@
 import Logo from "@/components/Logo";
-import BriefForm from "@/components/BriefForm";
+import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import { CheckIcon } from "@/components/Icons";
 import {
@@ -197,10 +197,10 @@ export default function PlusPage() {
           <Wave d="M0 30C240 -6 460 14 700 56S1100 92 1280 44 1400 22 1440 34V90H0Z" />
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-brief">תארו את הפרויקט תוך שלושים שניות.</h2>
-              <p className="sec-lead">בחרו מה אתם צריכים וכתבו על העסק. ההודעה מתכוננת בצד, מוכנה לשליחה.</p>
+              <h2 className="sec-title" id="t-brief">מוכנים להתחיל?</h2>
+              <p className="sec-lead">ארבע שאלות קצרות, ותקבלו מאיתנו הצעת מחיר חינם.</p>
             </div>
-            <BriefForm lang="he" />
+            <LeadForm lang="he" page="/plus" />
           </div>
         </section>
       </main>
