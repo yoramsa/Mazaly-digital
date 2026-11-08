@@ -4,27 +4,27 @@ import { useEffect, useRef, useState } from "react";
 
 const SCRIPTS = {
   he: {
-    agentName: "עוזר המסעדה",
+    agentName: "העוזר העסקי",
     agentMeta: "סוכן בינה מלאכותית · שיחה לדוגמה",
-    ariaLabel: "דוגמה לשיחה של סוכן בינה מלאכותית שמקבל הזמנת שולחן בוואטסאפ ומעדכן את המערכת",
-    event: "ההזמנה נוספה למערכת",
+    ariaLabel: "דוגמה לשיחה של סוכן בינה מלאכותית שקובע פגישה בוואטסאפ ומעדכן את המערכת",
+    event: "הפגישה נוספה למערכת",
     lines: [
-      { who: "c", text: "היי, יש מקום לארבעה בשבת בערב?" },
-      { who: "a", text: "שלום! בשבת ב-20:30 נשאר שולחן לארבעה. על איזה שם להזמין?" },
-      { who: "c", text: "על שם לוי. אפשר גם תפריט צמחוני?" },
-      { who: "a", text: "בטח, שלחתי לכם את התפריט הצמחוני. נתראה בשבת!" },
+      { who: "c", text: "היי, אפשר לקבל הצעת מחיר?" },
+      { who: "a", text: "בשמחה! כדי להציע לכם מחיר מדויק, מתי נוח לכם לשיחה קצרה?" },
+      { who: "c", text: "מחר בבוקר מתאים לי." },
+      { who: "a", text: "מעולה, קבעתי לכם לשעה 10:00. תקבלו תזכורת בוואטסאפ לפני." },
     ],
   },
   fr: {
-    agentName: "Assistant du restaurant",
+    agentName: "Assistant commercial",
     agentMeta: "Agent d'intelligence artificielle · conversation exemple",
-    ariaLabel: "Exemple de conversation d'un agent d'intelligence artificielle qui prend une réservation sur WhatsApp et met à jour le système",
-    event: "Réservation ajoutée au système",
+    ariaLabel: "Exemple de conversation d'un agent d'intelligence artificielle qui prend un rendez-vous sur WhatsApp et met à jour le système",
+    event: "Rendez-vous ajouté au système",
     lines: [
-      { who: "c", text: "Bonjour, il reste une table pour 4 personnes samedi soir ?" },
-      { who: "a", text: "Bonjour ! Samedi à 20h30 il reste une table pour 4. À quel nom je réserve ?" },
-      { who: "c", text: "Au nom de Lévy. Vous avez aussi un menu végétarien ?" },
-      { who: "a", text: "Bien sûr, je vous envoie le menu végétarien. À samedi !" },
+      { who: "c", text: "Bonjour, je voudrais un devis." },
+      { who: "a", text: "Avec plaisir ! Pour vous proposer le bon devis, quand êtes-vous disponible pour un rapide appel ?" },
+      { who: "c", text: "Demain matin, ça me va." },
+      { who: "a", text: "Parfait, je vous note à 10h. Vous recevrez un rappel sur WhatsApp avant." },
     ],
   },
 };
