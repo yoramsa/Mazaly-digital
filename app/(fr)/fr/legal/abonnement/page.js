@@ -1,5 +1,5 @@
 import LegalLayout from "@/components/LegalLayout";
-import { vatRatePercent } from "@/data/plans";
+import { vatRatePercent, startingPrice, currency } from "@/data/plans";
 import { emailDisplay, whatsappDisplay } from "@/lib/site";
 
 export const metadata = {
@@ -12,7 +12,7 @@ export default function AbonnementPage() {
   return (
     <LegalLayout lang="fr" homeHref="/fr" path="/fr/legal/abonnement" title="Conditions d'abonnement">
       <h2 className="legal-h2">Structure du paiement</h2>
-      <p className="legal-p">Chaque forfait comprend des frais d'installation ponctuels, suivis d'un abonnement mensuel. Les prix affichés sur le site sont hors TVA ({vatRatePercent} %). Le montant exact, TVA comprise, figure sur le devis final.</p>
+      <p className="legal-p">Chaque projet comprend des frais d'installation ponctuels, suivis d'un abonnement mensuel. Il n'y a pas de prix unique : le montant final est fixé dans un devis personnalisé, hors TVA ({vatRatePercent} %), à partir de {startingPrice.toLocaleString("fr-FR")} {currency} d'installation.</p>
 
       <h2 className="legal-h2">Durée d'engagement</h2>
       <p className="legal-p">L'abonnement mensuel implique un engagement de 12 mois à partir du début du service. Une résiliation anticipée entraîne des frais de sortie de {"{{frais_sortie_anticipee}}"}.</p>

@@ -1,12 +1,11 @@
 export const currency = "₪";
 export const vatRatePercent = 18;
+export const startingPrice = 999;
 
 export const plans = [
   {
     id: "essentiel",
     featured: false,
-    setupPrice: 1450,
-    monthlyPrice: 150,
     deliveryDaysBusiness: 7,
     name: { he: "חיוני", fr: "Essentiel" },
     tagline: {
@@ -31,8 +30,6 @@ export const plans = [
   {
     id: "croissance",
     featured: true,
-    setupPrice: 3750,
-    monthlyPrice: 490,
     deliveryDaysBusiness: 14,
     name: { he: "צמיחה", fr: "Croissance" },
     tagline: {
@@ -56,8 +53,6 @@ export const plans = [
   {
     id: "complet",
     featured: false,
-    setupPrice: 6250,
-    monthlyPrice: 1290,
     deliveryDaysBusiness: 21,
     name: { he: "מלא", fr: "Complet" },
     tagline: {
@@ -154,28 +149,9 @@ export const comparisonFootnote = {
 };
 
 export const conditions = [
+  { he: "המחיר הסופי נקבע בהצעת מחיר אישית, אחרי שיחת אפיון קצרה וחינמית.", fr: "Le prix final est fixé dans un devis personnalisé, après un court échange de cadrage gratuit." },
   { he: "התחייבות של 12 חודשים על המנוי החודשי מכל חבילה.", fr: "Engagement de 12 mois sur la mensualité, quel que soit le forfait." },
   { he: "יציאה מוקדמת מההתחייבות: עמלה של {{frais_sortie_anticipee}}.", fr: "Sortie anticipée de l'engagement : frais de {{frais_sortie_anticipee}}." },
-  { he: `המחירים המוצגים הם לפני מע״מ. עם מע״מ (${vatRatePercent}%) המחיר גבוה בהתאם — הסכום המדויק מצוין בהצעת המחיר.`, fr: `Les prix affichés sont hors TVA. Avec la TVA (${vatRatePercent} %), le montant est plus élevé — le chiffre exact figure sur le devis.` },
+  { he: `כל המחירים בהצעה הם לפני מע״מ (${vatRatePercent}%).`, fr: `Tous les prix du devis sont hors TVA (${vatRatePercent} %).` },
   { he: "זמני האספקה המצוינים הם ימי עסקים, מתחילים לאחר אישור ההצעה ואפיון קצר.", fr: "Les délais indiqués sont en jours ouvrés, à partir de la validation du devis et d'un court cadrage." },
 ];
-
-export const marketComparison = {
-  title: { he: "כמה זה עולה במקום אחר?", fr: "Combien ça coûte ailleurs ?" },
-  intro: {
-    he: "השוואה כנה למחיר הממוצע של \"אתר + CRM + אוטומציה + סוכן AI\" אצל כמה ספקים נפרדים, לעומת חבילת צמיחה אצלנו — שותף אחד, מחיר אחד.",
-    fr: "Comparaison honnête avec le prix moyen de « site + CRM + automatisation + agent IA » chez plusieurs prestataires séparés, face au forfait Croissance chez nous — un seul partenaire, un seul prix.",
-  },
-  rows: [
-    { label: { he: "אתר תדמית", fr: "Site vitrine" }, value: "{{prix_marche_site}}" },
-    { label: { he: "מערכת CRM", fr: "CRM" }, value: "{{prix_marche_crm}}" },
-    { label: { he: "אוטומציה / אינטגרציות", fr: "Automatisation / intégrations" }, value: "{{prix_marche_automatisation}}" },
-    { label: { he: "סוכן בינה מלאכותית", fr: "Agent IA" }, value: "{{prix_marche_agent_ia}}" },
-  ],
-  totalLabel: { he: "סה״כ משוער במקום אחר", fr: "Total estimé ailleurs" },
-  totalValue: "{{prix_marche_total}}",
-  ours: {
-    label: { he: "חבילת צמיחה אצלנו", fr: "Forfait Croissance chez nous" },
-    value: { he: "3,750 ₪ הקמה + 490 ₪/חודש", fr: "3 750 ₪ d'installation + 490 ₪/mois" },
-  },
-};

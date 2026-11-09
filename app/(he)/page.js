@@ -9,10 +9,9 @@ import PipelineMini from "@/components/PipelineMini";
 import PipelineFull from "@/components/PipelineFull";
 import PlanCard from "@/components/PlanCard";
 import ComparisonTable from "@/components/ComparisonTable";
-import MarketComparison from "@/components/MarketComparison";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
-import { plans, customOffer, conditions } from "@/data/plans";
+import { plans, customOffer, conditions, startingPrice, currency } from "@/data/plans";
 import { pains, pipelineSteps, steps, projects, testimonials, faqs, facts } from "@/lib/content.he";
 import { waLink, siteUrl } from "@/lib/site";
 
@@ -36,15 +35,7 @@ const jsonLd = {
         "@type": "Offer",
         name: p.name.he,
         description: p.tagline.he,
-        price: p.setupPrice,
-        priceCurrency: "ILS",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: p.monthlyPrice,
-          priceCurrency: "ILS",
-          billingDuration: "P1M",
-          referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
-        },
+        priceSpecification: { "@type": "PriceSpecification", minPrice: startingPrice, priceCurrency: "ILS" },
         itemOffered: { "@type": "Service", name: p.name.he, provider: { "@id": `${siteUrl}/#organization` } },
       })),
     },
@@ -91,7 +82,7 @@ export default function Home() {
                 <span className="w" style={{ "--i": 2 }}>אחד.</span>{" "}
                 <span className="w hl" style={{ "--i": 3 }}>לא ארבעה.</span>
               </h1>
-              <p className="hero-lead">אתר, CRM, אוטומציות וסוכן בינה מלאכותית בוואטסאפ — מחיר הקמה נמוך, מנוי חודשי אחד וברור.</p>
+              <p className="hero-lead">תגידו לנו מה אתם צריכים — אתר, CRM, אוטומציות או סוכן AI בוואטסאפ — ואנחנו נבנה לכם את זה. החל מ-{startingPrice.toLocaleString("he-IL")} {currency} להקמה, בהצעת מחיר אישית.</p>
               <div className="hero-actions">
                 <span className="mag"><a className="btn btn-mag" href="#forfaits"><span className="btn-in">לראות חבילות</span></a></span>
                 <a
@@ -159,8 +150,8 @@ export default function Home() {
         <section className="sec sec-alt" id="forfaits" aria-labelledby="t-forfaits">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-forfaits">שלוש חבילות, בלי הפתעות.</h2>
-              <p className="sec-lead">בוחרים את נקודת ההתחלה הנכונה לעסק, ומתרחבים כשצריך. המחיר קבוע ומוצג כאן.</p>
+              <h2 className="sec-title" id="t-forfaits">תגידו לנו מה אתם צריכים, אנחנו נבנה את זה.</h2>
+              <p className="sec-lead">כל עסק שונה, אז כל הצעת מחיר מותאמת אישית. בתור קו מנחה: התחלה מ-{startingPrice.toLocaleString("he-IL")} {currency} להקמה.</p>
             </div>
             <div className="pkg-grid" data-stagger>
               {plans.map((p) => (
@@ -182,7 +173,6 @@ export default function Home() {
                 <li className="condition-item" key={i}><span className="condition-dot"></span>{c.he}</li>
               ))}
             </ul>
-            <MarketComparison lang="he" />
           </div>
         </section>
 

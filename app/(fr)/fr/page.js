@@ -9,10 +9,9 @@ import PipelineMini from "@/components/PipelineMini";
 import PipelineFull from "@/components/PipelineFull";
 import PlanCard from "@/components/PlanCard";
 import ComparisonTable from "@/components/ComparisonTable";
-import MarketComparison from "@/components/MarketComparison";
 import Projects from "@/components/Projects";
 import Testimonials from "@/components/Testimonials";
-import { plans, customOffer, conditions } from "@/data/plans";
+import { plans, customOffer, conditions, startingPrice, currency } from "@/data/plans";
 import { pains, pipelineSteps, steps, projects, testimonials, faqs, facts } from "@/lib/content.fr";
 import { waLink, siteUrl } from "@/lib/site";
 
@@ -36,15 +35,7 @@ const jsonLd = {
         "@type": "Offer",
         name: p.name.fr,
         description: p.tagline.fr,
-        price: p.setupPrice,
-        priceCurrency: "ILS",
-        priceSpecification: {
-          "@type": "UnitPriceSpecification",
-          price: p.monthlyPrice,
-          priceCurrency: "ILS",
-          billingDuration: "P1M",
-          referenceQuantity: { "@type": "QuantitativeValue", value: 1, unitCode: "MON" },
-        },
+        priceSpecification: { "@type": "PriceSpecification", minPrice: startingPrice, priceCurrency: "ILS" },
         itemOffered: { "@type": "Service", name: p.name.fr, provider: { "@id": `${siteUrl}/#organization` } },
       })),
     },
@@ -92,7 +83,7 @@ export default function HomeFr() {
                 <span className="w" style={{ "--i": 3 }}>digital.</span>{" "}
                 <span className="w hl" style={{ "--i": 4 }}>Pas quatre.</span>
               </h1>
-              <p className="hero-lead">Site, CRM, automatisations et agent IA WhatsApp — un prix d'installation bas, un abonnement mensuel clair.</p>
+              <p className="hero-lead">Dites-nous ce qu'il vous faut — site, CRM, automatisations ou agent IA WhatsApp — et on le construit pour vous. À partir de {startingPrice.toLocaleString("fr-FR")} {currency} d'installation, sur devis personnalisé.</p>
               <div className="hero-actions">
                 <span className="mag"><a className="btn btn-mag" href="#forfaits"><span className="btn-in">Voir les forfaits</span></a></span>
                 <a
@@ -160,8 +151,8 @@ export default function HomeFr() {
         <section className="sec sec-alt" id="forfaits" aria-labelledby="t-forfaits">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-forfaits">Trois forfaits, sans surprise.</h2>
-              <p className="sec-lead">On choisit le bon point de départ pour l'entreprise, et on évolue quand c'est nécessaire. Le prix est fixe et affiché ici.</p>
+              <h2 className="sec-title" id="t-forfaits">Dites-nous ce qu'il vous faut, on vous le construit.</h2>
+              <p className="sec-lead">Chaque entreprise est différente, donc chaque devis est personnalisé. Comme repère : à partir de {startingPrice.toLocaleString("fr-FR")} {currency} d'installation.</p>
             </div>
             <div className="pkg-grid" data-stagger>
               {plans.map((p) => (
@@ -183,7 +174,6 @@ export default function HomeFr() {
                 <li className="condition-item" key={i}><span className="condition-dot"></span>{c.fr}</li>
               ))}
             </ul>
-            <MarketComparison lang="fr" />
           </div>
         </section>
 
