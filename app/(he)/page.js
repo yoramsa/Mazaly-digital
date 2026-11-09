@@ -3,7 +3,7 @@ import HeroBackground from "@/components/HeroBackground";
 import ChatDemo from "@/components/ChatDemo";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
-import WhatsappFloat from "@/components/WhatsappFloat";
+import AssistantWidget from "@/components/AssistantWidget";
 import StickyCta from "@/components/StickyCta";
 import PipelineMini from "@/components/PipelineMini";
 import PipelineFull from "@/components/PipelineFull";
@@ -52,7 +52,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageEffects />
       <div className="progress" id="progress" aria-hidden="true"></div>
-      <WhatsappFloat lang="he" />
+      <AssistantWidget lang="he" />
       <StickyCta lang="he" />
 
       <header className="top" id="top-bar">
