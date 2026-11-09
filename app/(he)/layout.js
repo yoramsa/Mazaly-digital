@@ -16,15 +16,15 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | סוכנות דיגיטל: אתרים, CRM, אוטומציה, בינה מלאכותית ותוכן";
+const title = "Mazaly Digital | שותף דיגיטלי אחד: אתר, CRM, אוטומציה וסוכן AI בוואטסאפ";
 const description =
-  "Mazaly Digital היא סוכנות דיגיטל בתל אביב — יותר מסוכנות אתרים. אנחנו בונים אתרים, CRM, אוטומציות שחוסכות זמן, סוכני בינה מלאכותית ותוכן דיגיטלי, ומלווים עסקים מהרעיון ועד למערכת שעובדת, בעברית ובצרפתית.";
+  "Mazaly Digital היא סוכנות דיגיטל בתל אביב שנותנת לעסקים שותף אחד לכל מה שדיגיטלי: אתר, CRM, אוטומציות וסוכן בינה מלאכותית בוואטסאפ. מחיר הקמה נמוך, מנוי חודשי ברור, בעברית ובצרפתית.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  alternates: { canonical: "/", languages: { he: "/", fr: "/fr" } },
+  alternates: { canonical: "/", languages: { he: "/", fr: "/fr", "x-default": "/" } },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   openGraph: {
     type: "website",
@@ -45,14 +45,14 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#fff8f0",
+  themeColor: "#0b0813",
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteUrl}/#organization`,
       name: "Mazaly Digital",
       url: siteUrl,
@@ -60,62 +60,12 @@ const jsonLd = {
       slogan: "שותף אחד לכל מה שהוא דיגיטלי",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
+      priceRange: "1450-6250 ILS",
       areaServed: { "@type": "Country", name: "ישראל" },
       address: { "@type": "PostalAddress", addressLocality: "תל אביב", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
-      audience: { "@type": "Audience", audienceType: "עסקים, ארגונים ויזמים מכל תחום ומכל גודל" },
-      knowsAbout: [
-        "בניית אתרים",
-        "CRM",
-        "אוטומציה עסקית",
-        "סוכני בינה מלאכותית",
-        "יצירת תוכן דיגיטלי",
-        "אפליקציות מובייל",
-        "תוכנה בהתאמה אישית",
-        "וואטסאפ לעסקים",
-      ],
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "שירותי Mazaly Digital",
-        itemListElement: [
-          "בניית אתרים",
-          "CRM",
-          "אוטומציות",
-          "סוכני בינה מלאכותית",
-          "יצירת תוכן דיגיטלי",
-          "אפליקציות ותוכנה בהתאמה אישית",
-        ].map((n) => ({
-          "@type": "Offer",
-          itemOffered: { "@type": "Service", name: n, provider: { "@id": `${siteUrl}/#organization` } },
-        })),
-      },
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "מהי Mazaly Digital?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Mazaly Digital היא סוכנות דיגיטל מתל אביב — יותר מסוכנות אתרים. אנחנו בונים אתרים, CRM, אוטומציות, סוכני בינה מלאכותית ותוכן דיגיטלי, ומלווים עסקים מהרעיון ועד למערכת שעובדת בפועל.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "אילו שירותים Mazaly Digital מספקת?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "חמישה תחומים עיקריים תחת צוות אחד: בניית אתרים, CRM, אוטומציות, סוכני בינה מלאכותית ותוכן דיגיטלי — ובנוסף אפליקציות ותוכנה בהתאמה אישית כשצריך.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "האם אתם עובדים בעברית ובצרפתית?",
-          acceptedAnswer: { "@type": "Answer", text: "כן. אפשר לבנות אתרים, מערכות וסוכנים בעברית, בצרפתית או בשתי השפות יחד." },
-        },
-      ],
+      audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים מכל תחום" },
+      knowsAbout: ["בניית אתרים", "CRM", "אוטומציה עסקית", "סוכני בינה מלאכותית", "וואטסאפ לעסקים"],
     },
   ],
 };

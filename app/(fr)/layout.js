@@ -16,15 +16,15 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | Agence digitale : sites, CRM, automatisation, IA et contenu";
+const title = "Mazaly Digital | Un seul partenaire digital : site, CRM, automatisation, agent IA WhatsApp";
 const description =
-  "Mazaly Digital est une agence digitale basée à Tel Aviv — plus qu'une agence web. Nous construisons des sites, des CRM, des automatisations qui font gagner du temps, des agents d'intelligence artificielle et du contenu digital, en hébreu et en français.";
+  "Mazaly Digital est une agence digitale de Tel Aviv qui donne aux entreprises un seul partenaire pour tout le digital : site, CRM, automatisations et agent IA WhatsApp. Prix d'installation bas, abonnement mensuel clair, en hébreu et en français.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  alternates: { canonical: "/fr", languages: { he: "/", fr: "/fr" } },
+  alternates: { canonical: "/fr", languages: { he: "/", fr: "/fr", "x-default": "/" } },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   openGraph: {
     type: "website",
@@ -45,61 +45,26 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#fff8f0",
+  themeColor: "#0b0813",
 };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "ProfessionalService",
+      "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteUrl}/#organization`,
       name: "Mazaly Digital",
       url: `${siteUrl}/fr`,
       description,
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
+      priceRange: "1450-6250 ILS",
       areaServed: { "@type": "Country", name: "Israël" },
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
-      audience: { "@type": "Audience", audienceType: "Entreprises, organisations et entrepreneurs de tous secteurs et toutes tailles" },
-      knowsAbout: [
-        "Création de sites",
-        "CRM",
-        "Automatisation métier",
-        "Agents d'intelligence artificielle",
-        "Création de contenu digital",
-        "Applications mobiles",
-        "Logiciels sur mesure",
-        "WhatsApp pour entreprises",
-      ],
-    },
-    {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/fr#faq`,
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "Qu'est-ce que Mazaly Digital ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Mazaly Digital est une agence digitale basée à Tel Aviv — plus qu'une agence web. Elle construit des sites, des CRM, des automatisations, des agents d'intelligence artificielle et du contenu digital, et accompagne les entreprises de l'idée jusqu'au système qui fonctionne.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Quels services propose Mazaly Digital ?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Cinq domaines sous une seule équipe : création de sites, CRM, automatisations, agents d'intelligence artificielle et contenu digital — et des applications et logiciels sur mesure quand c'est nécessaire.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Travaillez-vous en hébreu et en français ?",
-          acceptedAnswer: { "@type": "Answer", text: "Oui. Les sites, systèmes et agents peuvent être construits en hébreu, en français, ou dans les deux langues à la fois." },
-        },
-      ],
+      audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, tous secteurs" },
+      knowsAbout: ["Création de sites", "CRM", "Automatisation métier", "Agents d'intelligence artificielle", "WhatsApp pour entreprises"],
     },
   ],
 };

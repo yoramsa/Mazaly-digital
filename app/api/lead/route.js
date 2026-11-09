@@ -1,4 +1,22 @@
+const WINDOW_MS = 60_000;
+const MAX_PER_WINDOW = 5;
+const hits = new Map();
+
+function rateLimited(ip) {
+  const now = Date.now();
+  const timestamps = (hits.get(ip) || []).filter((t) => now - t < WINDOW_MS);
+  timestamps.push(now);
+  hits.set(ip, timestamps);
+  if (hits.size > 5000) hits.clear();
+  return timestamps.length > MAX_PER_WINDOW;
+}
+
 export async function POST(req) {
+  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  if (rateLimited(ip)) {
+    return Response.json({ ok: false, error: "rate_limited" }, { status: 429 });
+  }
+
   let data;
   try {
     data = await req.json();
@@ -6,7 +24,10 @@ export async function POST(req) {
     return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
 
-  const { name, contact, size, need, lang, page } = data || {};
+  const { name, contact, size, need, lang, page, website } = data || {};
+  if (website) {
+    return Response.json({ ok: true });
+  }
   if (!name || !contact) {
     return Response.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
