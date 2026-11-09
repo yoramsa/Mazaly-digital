@@ -144,8 +144,7 @@ export default function LeadForm({ lang = "he", page = "/" }) {
               ))}
             </div>
           </div>
-          <div className="lead-actions">
-            <span></span>
+          <div className="lead-actions lead-actions-single">
             <span className="mag">
               <button type="button" className="btn btn-mag" onClick={goNext}>
                 <span className="btn-in">{t.next}</span>

@@ -1,8 +1,13 @@
 import { CheckIcon, CrossIcon } from "@/components/Icons";
 import { plans, comparisonRows, comparisonFootnote } from "@/data/plans";
 
+const HINT = { he: "☜ אפשר להחליק בטבלה כדי לראות את כל החבילות", fr: "☞ Faites glisser le tableau pour voir tous les forfaits" };
+
 export default function ComparisonTable({ lang = "he" }) {
+  const t = HINT[lang] || HINT.he;
   return (
+    <>
+    <p className="cmp-hint">{t}</p>
     <div className="cmp-wrap">
       <table className="cmp-table">
         <thead>
@@ -30,5 +35,6 @@ export default function ComparisonTable({ lang = "he" }) {
       </table>
       <p className="cmp-note">{comparisonFootnote[lang]}</p>
     </div>
+    </>
   );
 }

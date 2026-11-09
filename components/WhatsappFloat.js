@@ -21,7 +21,6 @@ export default function WhatsappFloat({ lang = "he", message }) {
       onClick={() => track("whatsapp_click", { lang, source: "float" })}
     >
       <WhatsAppIcon />
-      <span className="wa-float-text">{t.label}</span>
     </a>
   );
 }

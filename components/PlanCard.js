@@ -17,13 +17,13 @@ export default function PlanCard({ plan, lang = "he", formHref }) {
       <p className="pkg-sub">{t.included}</p>
       <ul className="pkg-items">
         {plan.included.map((it) => (
-          <li key={it[lang]}><CheckIcon />{it[lang]}</li>
+          <li key={it[lang]}><CheckIcon /><span className="pkg-item-text">{it[lang]}</span></li>
         ))}
       </ul>
       <p className="pkg-sub">{t.excluded}</p>
       <ul className="pkg-excluded">
         {plan.excluded.map((it) => (
-          <li key={it[lang]}><CrossIcon />{it[lang]}</li>
+          <li key={it[lang]}><CrossIcon /><span className="pkg-item-text">{it[lang]}</span></li>
         ))}
       </ul>
       <span className="mag">
