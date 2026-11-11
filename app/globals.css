@@ -255,20 +255,6 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 .step-duration { display: inline-block; font-size: 0.78rem; font-weight: 600; color: var(--gold); margin-bottom: 10px; }
 .step-text { color: var(--dim); }
 
-.proj-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
-.proj-card { background: var(--raise); border: 1px solid var(--line); border-radius: 26px; overflow: hidden; transition: border-color 0.25s, translate 0.25s; }
-.proj-card:hover { border-color: rgba(var(--net), 0.4); translate: 0 -4px; box-shadow: 0 16px 36px -22px rgba(var(--net), 0.4); }
-.proj-media { height: 150px; background: linear-gradient(135deg, rgba(var(--net), 0.16), rgba(var(--net2), 0.12)); display: grid; place-items: center; color: var(--dim); font-size: 0.85rem; font-weight: 600; }
-.proj-body { padding: 20px 22px 24px; }
-.proj-sector { font-weight: 700; font-size: 1.05rem; margin-bottom: 6px; }
-.proj-result { color: var(--dim); font-size: 0.92rem; }
-
-.testi-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
-.testi-card { background: var(--raise); border: 1px dashed var(--line); border-radius: 24px; padding: 26px 24px; }
-.testi-quote { color: var(--dim); font-style: italic; margin-bottom: 16px; }
-.testi-author { font-weight: 700; font-size: 0.95rem; }
-.testi-role { color: var(--dim); font-size: 0.85rem; }
-
 .about { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(32px, 7vw, 100px); align-items: start; }
 .about-text { color: var(--dim); margin-top: 22px; max-width: 46ch; }
 .facts { min-width: 0; margin-top: clamp(0px, 6vw, 72px); background: var(--raise); border: 1px solid var(--line); border-radius: 28px; padding: 18px 40px 18px 34px; }
@@ -366,8 +352,6 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
   .marquee { margin-block-start: -20px; }
   .pain-grid { grid-template-columns: minmax(0, 1fr); }
   .pkg-grid { grid-template-columns: minmax(0, 1fr); }
-  .proj-grid { grid-template-columns: minmax(0, 1fr); }
-  .testi-grid { grid-template-columns: minmax(0, 1fr); }
   .conditions-list { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
@@ -397,7 +381,7 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
   html { scroll-behavior: auto; }
   .w, .hl, .hero-lead, .hero-actions, .float, .eyebrow-dot, .marquee-track, .cs-pulse, .chain-pulse, .msg, .event, .typing, .typing i, .q-a, .stage::before, .spark, .blob, .b1, .b2, .b3, .pipe-hero-n { animation: none !important; }
   .hl { background-position: 0 0; }
-  .tilt, .btn, .rv, .pain-card, .pkg-card, .chain-node, .proj-card { transition: none; }
+  .tilt, .btn, .rv, .pain-card, .pkg-card, .chain-node { transition: none; }
   .rv { opacity: 1; transform: none; }
   .marquee { transform: none; }
 }

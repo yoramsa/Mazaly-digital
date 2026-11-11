@@ -9,10 +9,8 @@ import PipelineMini from "@/components/PipelineMini";
 import PipelineFull from "@/components/PipelineFull";
 import PlanCard from "@/components/PlanCard";
 import ComparisonTable from "@/components/ComparisonTable";
-import Projects from "@/components/Projects";
-import Testimonials from "@/components/Testimonials";
 import { plans, customOffer, conditions, startingPrice, currency } from "@/data/plans";
-import { pains, pipelineSteps, steps, projects, testimonials, faqs, facts } from "@/lib/content.he";
+import { pains, pipelineSteps, steps, faqs, facts } from "@/lib/content.he";
 import { waLink, siteUrl } from "@/lib/site";
 
 const jsonLd = {
@@ -176,17 +174,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="sec" id="realisations" aria-labelledby="t-proj">
-          <i className="orb orb-1" aria-hidden="true"></i>
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-proj">עבודות לדוגמה.</h2>
-              <p className="sec-lead">כמה פרויקטים שבנינו, עם התחום והתוצאה שהם הביאו.</p>
-            </div>
-            <Projects projects={projects} lang="he" />
-          </div>
-        </section>
-
         <section className="sec sec-alt" id="process" aria-labelledby="t-process">
           <div className="wrap">
             <div className="sec-head flip rv">
@@ -203,17 +190,6 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-          </div>
-        </section>
-
-        <section className="sec" id="testimonials" aria-labelledby="t-testi">
-          <i className="orb orb-2" aria-hidden="true"></i>
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-testi">מה אומרים עלינו.</h2>
-              <p className="sec-lead">לקוחות שעבדו איתנו, בלשון שלהם.</p>
-            </div>
-            <Testimonials testimonials={testimonials} />
           </div>
         </section>
 
