@@ -11,7 +11,7 @@ export default function ConfidentialitePage() {
   return (
     <LegalLayout lang="fr" homeHref="/fr" path="/fr/legal/confidentialite" title="Politique de confidentialité">
       <h2 className="legal-h2">Quelles informations sont collectées</h2>
-      <p className="legal-p">Quand vous remplissez le formulaire de contact du site, nous collectons les informations que vous fournissez : nom, moyen de contact (téléphone ou e-mail), taille de l'entreprise et forfait qui vous intéresse. Le site peut aussi collecter des données d'usage anonymes (pages consultées) via un outil d'analytics.</p>
+      <p className="legal-p">Quand vous remplissez le formulaire de contact du site, nous collectons les informations que vous fournissez : nom et e-mail. Le site peut aussi collecter des données d'usage anonymes (pages consultées) via un outil d'analytics.</p>
 
       <h2 className="legal-h2">À quoi servent ces informations</h2>
       <ul className="legal-list">

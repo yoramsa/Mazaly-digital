@@ -16,9 +16,9 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | Un seul partenaire digital : site, CRM, automatisation, agent IA WhatsApp";
+const title = "Mazaly Digital | Création de site et développement avec l'intelligence artificielle";
 const description =
-  "Mazaly Digital est une agence digitale de Tel Aviv qui donne aux entreprises un seul partenaire pour tout le digital : site, CRM, automatisations et agent IA WhatsApp. Prix d'installation bas, abonnement mensuel clair, en hébreu et en français.";
+  "Mazaly Digital est une agence digitale de Tel Aviv. Nous créons des sites rapides et des agents d'intelligence artificielle qui répondent aux clients sur WhatsApp 24h/24, en hébreu et en français.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -59,12 +59,12 @@ const jsonLd = {
       description,
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
-      priceRange: "1450-6250 ILS",
+      priceRange: "999+ ILS",
       areaServed: { "@type": "Country", name: "Israël" },
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, tous secteurs" },
-      knowsAbout: ["Création de sites", "CRM", "Automatisation métier", "Agents d'intelligence artificielle", "WhatsApp pour entreprises"],
+      knowsAbout: ["Création de sites", "Agents d'intelligence artificielle", "WhatsApp pour entreprises"],
     },
   ],
 };

@@ -18,7 +18,7 @@ export default function AbonnementPage() {
       <p className="legal-p">L'abonnement mensuel implique un engagement de 12 mois à partir du début du service. Une résiliation anticipée entraîne des frais de sortie de {"{{frais_sortie_anticipee}}"}.</p>
 
       <h2 className="legal-h2">Délais de livraison</h2>
-      <p className="legal-p">Les délais estimés (7 jours ouvrés pour Essentiel, 14 pour Croissance, 21 pour Complet) démarrent après un échange de cadrage et la validation écrite du devis, et dépendent de la remise à temps des contenus et validations par le client.</p>
+      <p className="legal-p">Le délai estimé est précisé dans le devis de chaque projet, et démarre après un échange de cadrage et la validation écrite du devis. Le délai réel dépend de la remise à temps des contenus et validations par le client.</p>
 
       <h2 className="legal-h2">Propriété du site et du système</h2>
       <p className="legal-p">Le site, le contenu et le code construits pour vous vous appartiennent dès le paiement complet de l'installation. L'abonnement mensuel couvre l'hébergement, les sauvegardes, la sécurité et le support — il ne conditionne pas la propriété du code.</p>

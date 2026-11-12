@@ -1,45 +1,30 @@
 import Logo from "@/components/Logo";
 import HeroBackground from "@/components/HeroBackground";
-import ChatDemo from "@/components/ChatDemo";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
-import AssistantWidget from "@/components/AssistantWidget";
-import StickyCta from "@/components/StickyCta";
-import PipelineMini from "@/components/PipelineMini";
-import PipelineFull from "@/components/PipelineFull";
-import PlanCard from "@/components/PlanCard";
-import ComparisonTable from "@/components/ComparisonTable";
-import { plans, customOffer, conditions, startingPrice, currency } from "@/data/plans";
-import { pains, pipelineSteps, steps, faqs, facts } from "@/lib/content.he";
+import WhatsappFloat from "@/components/WhatsappFloat";
+import { SiteIcon, AiIcon } from "@/components/Icons";
+import { services } from "@/lib/content.he";
 import { waLink, siteUrl } from "@/lib/site";
+
+const ICONS = { site: SiteIcon, ai: AiIcon };
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "FAQPage",
-      "@id": `${siteUrl}/#faq`,
-      mainEntity: faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-    {
-      "@type": "OfferCatalog",
-      "@id": `${siteUrl}/#forfaits`,
-      name: "חבילות Mazaly Digital",
-      itemListElement: plans.map((p) => ({
-        "@type": "Offer",
-        name: p.name.he,
-        description: p.tagline.he,
-        priceSpecification: { "@type": "PriceSpecification", minPrice: startingPrice, priceCurrency: "ILS" },
-        itemOffered: { "@type": "Service", name: p.name.he, provider: { "@id": `${siteUrl}/#organization` } },
-      })),
-    },
-    {
       "@type": "BreadcrumbList",
       itemListElement: [{ "@type": "ListItem", position: 1, name: "דף הבית", item: siteUrl }],
+    },
+    {
+      "@type": "ItemList",
+      itemListElement: services.map((s, i) => ({
+        "@type": "Service",
+        position: i + 1,
+        name: s.title,
+        description: s.text,
+        provider: { "@id": `${siteUrl}/#organization` },
+      })),
     },
   ],
 };
@@ -50,8 +35,7 @@ export default function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageEffects />
       <div className="progress" id="progress" aria-hidden="true"></div>
-      <AssistantWidget lang="he" />
-      <StickyCta lang="he" />
+      <WhatsappFloat lang="he" />
 
       <header className="top" id="top-bar">
         <div className="wrap top-in">
@@ -60,10 +44,8 @@ export default function Home() {
             <span>Mazaly<span className="brand-sub"> Digital</span></span>
           </a>
           <nav className="nav" aria-label="ניווט ראשי">
-            <a className="nav-link" href="#forfaits">חבילות</a>
-            <a className="nav-link" href="#faq">שאלות נפוצות</a>
             <a className="lang-switch" href="/fr" hrefLang="fr">FR</a>
-            <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#brief"><span className="btn-in">לדבר על הפרויקט</span></a></span>
+            <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#brief"><span className="btn-in">להשאיר פרטים</span></a></span>
           </nav>
         </div>
       </header>
@@ -75,17 +57,17 @@ export default function Home() {
             <div className="hero-copy">
               <p className="eyebrow"><span className="eyebrow-dot"></span>סוכנות דיגיטל · תל אביב</p>
               <h1 className="hero-title">
-                <span className="w" style={{ "--i": 0 }}>שותף</span>{" "}
-                <span className="w" style={{ "--i": 1 }}>דיגיטלי</span>{" "}
-                <span className="w" style={{ "--i": 2 }}>אחד.</span>{" "}
-                <span className="w hl" style={{ "--i": 3 }}>לא ארבעה.</span>
+                <span className="w" style={{ "--i": 0 }}>אתר</span>{" "}
+                <span className="w" style={{ "--i": 1 }}>שעובד</span>{" "}
+                <span className="w" style={{ "--i": 2 }}>בשבילכם,</span>{" "}
+                <span className="w hl" style={{ "--i": 3 }}>גם כשאתם ישנים.</span>
               </h1>
-              <p className="hero-lead">תגידו לנו מה אתם צריכים — אתר, CRM, אוטומציות או סוכן AI בוואטסאפ — ואנחנו נבנה לכם את זה. החל מ-{startingPrice.toLocaleString("he-IL")} {currency} להקמה, בהצעת מחיר אישית.</p>
+              <p className="hero-lead">בונים לכם אתר מהיר וסוכן בינה מלאכותית שעונה ללקוחות בוואטסאפ, 24/7.</p>
               <div className="hero-actions">
-                <span className="mag"><a className="btn btn-mag" href="#forfaits"><span className="btn-in">לראות חבילות</span></a></span>
+                <span className="mag"><a className="btn btn-mag" href="#brief"><span className="btn-in">להשאיר פרטים</span></a></span>
                 <a
                   className="btn btn-quiet"
-                  href={waLink("היי, אני רוצה לשמוע על החבילות של Mazaly Digital.")}
+                  href={waLink("היי, אני רוצה לשמוע פרטים על בניית אתר וסוכן AI.")}
                   target="_blank"
                   rel="noopener"
                 >
@@ -93,54 +75,26 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
-            <div className="stage" id="stage">
-              <div className="tilt" id="tilt">
-                <PipelineMini steps={pipelineSteps} ariaLabel="התהליך: אתר, CRM, אוטומציה וסוכן בינה מלאכותית, מחוברים זה לזה" />
-              </div>
-            </div>
           </div>
         </section>
 
-        <section className="sec sec-first" aria-labelledby="t-pains">
+        <section className="sec sec-first" id="services" aria-labelledby="t-services">
           <i className="orb orb-1" aria-hidden="true"></i>
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-pains">מה שקורה בלי מערכת.</h2>
-              <p className="sec-lead">שלושה דברים שקורים בכל עסק שמנסה לנהל הכול לבד, בכמה כלים שלא מדברים אחד עם השני.</p>
+              <h2 className="sec-title" id="t-services">מה אנחנו עושים.</h2>
             </div>
-            <div className="pain-grid" data-stagger>
-              {pains.map((p) => (
-                <div className="pain-card" key={p.title}>
-                  <h3 className="pain-title">{p.title}</h3>
-                  <p className="pain-text">{p.text}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="sec sec-alt" aria-labelledby="t-chain">
-          <i className="orb orb-2" aria-hidden="true"></i>
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-chain">כל רכיב מדבר עם האחרים.</h2>
-              <p className="sec-lead">היתרון בשותף אחד: האתר, ה-CRM, האוטומציות והסוכן חולקים את אותם נתונים מהיום הראשון.</p>
-            </div>
-            <PipelineFull steps={pipelineSteps} />
-            <p className="chain-note rv">אפשר גם להתחיל מרכיב אחד. את האחרים מחברים אחר כך בלי לבנות הכול מחדש.</p>
-          </div>
-        </section>
-
-        <section className="sec" aria-labelledby="t-demo">
-          <i className="orb orb-3" aria-hidden="true"></i>
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-demo">הסוכן שלכם בפעולה.</h2>
-              <p className="sec-lead">שיחה לדוגמה: הסוכן עונה ללקוח בוואטסאפ, מציע תור פנוי ומאשר את הפגישה — בעברית, בכל שעה.</p>
-            </div>
-            <div className="demo-wrap">
-              <div className="demo-card"><ChatDemo lang="he" /></div>
+            <div className="svc-grid" data-stagger>
+              {services.map((s) => {
+                const Icon = ICONS[s.icon];
+                return (
+                  <article className="svc-card" key={s.id}>
+                    <span className="svc-icon"><Icon /></span>
+                    <h3 className="svc-title">{s.title}</h3>
+                    <p className="svc-text">{s.text}</p>
+                  </article>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -150,90 +104,11 @@ export default function Home() {
           <p className="statement-title">בואו <span className="hl" style={{ "--i": 0 }}>נעשה את זה.</span></p>
         </section>
 
-        <section className="sec sec-alt" id="forfaits" aria-labelledby="t-forfaits">
-          <div className="wrap">
-            <div className="sec-head rv">
-              <h2 className="sec-title" id="t-forfaits">שלוש נקודות התחלה, לכל גודל עסק.</h2>
-              <p className="sec-lead">כל עסק שונה, אז כל הצעת מחיר מותאמת אישית. בתור קו מנחה: התחלה מ-{startingPrice.toLocaleString("he-IL")} {currency} להקמה.</p>
-            </div>
-            <div className="pkg-grid" data-stagger>
-              {plans.map((p) => (
-                <PlanCard key={p.id} plan={p} lang="he" formHref={`?plan=${p.id}#brief`} />
-              ))}
-            </div>
-            <div className="sub-card rv">
-              <div>
-                <h3>{customOffer.he.title}</h3>
-                <p>{customOffer.he.text}</p>
-              </div>
-              <span className="mag">
-                <a className="btn btn-mag btn-quiet" href="#brief"><span className="btn-in">לדבר על פרויקט בהתאמה</span></a>
-              </span>
-            </div>
-            <ComparisonTable lang="he" />
-            <ul className="conditions-list rv">
-              {conditions.map((c, i) => (
-                <li className="condition-item" key={i}><span className="condition-dot"></span>{c.he}</li>
-              ))}
-            </ul>
-          </div>
-        </section>
-
-        <section className="sec sec-alt" id="process" aria-labelledby="t-process">
-          <div className="wrap">
-            <div className="sec-head flip rv">
-              <h2 className="sec-title" id="t-process">איך זה עובד.</h2>
-              <p className="sec-lead">מסלול פשוט, עם אישור שלכם לפני כל שלב יקר.</p>
-            </div>
-            <ol className="steps" data-stagger>
-              {steps.map((s) => (
-                <li className="step" key={s.n}>
-                  <p className="step-n">{s.n}</p>
-                  <h3 className="step-name">{s.name}</h3>
-                  <span className="step-duration">{s.duration}</span>
-                  <p className="step-text">{s.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
-
-        <section className="sec sec-alt" id="faq" aria-labelledby="t-faq">
-          <div className="wrap">
-            <div className="sec-head flip rv">
-              <h2 className="sec-title" id="t-faq">שאלות נפוצות.</h2>
-              <p className="sec-lead">התשובות לשאלות שעסקים שואלים אותנו לפני שמתחילים.</p>
-            </div>
-            <div className="faq rv">
-              {faqs.map((f, i) => (
-                <details className="q" key={f.q} open={i === 0}>
-                  <summary>{f.q}</summary>
-                  <p className="q-a">{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="sec" aria-labelledby="t-about">
-          <div className="wrap about">
-            <div className="rv">
-              <h2 className="sec-title" id="t-about">Mazaly Digital במבט אחד.</h2>
-              <p className="about-text">Mazaly Digital היא סוכנות דיגיטל הפועלת מתל אביב. היא מלווה עסקים מהרעיון ועד למערכת שעובדת: אתר, CRM, אוטומציה וסוכן בינה מלאכותית, תחת שותף אחד.</p>
-            </div>
-            <dl className="facts rv">
-              {facts.map((f) => (
-                <div className="fact" key={f.dt}><dt>{f.dt}</dt><dd>{f.dd}</dd></div>
-              ))}
-            </dl>
-          </div>
-        </section>
-
         <section className="sec sec-alt" id="brief" aria-labelledby="t-brief">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-brief">מוכנים להתחיל?</h2>
-              <p className="sec-lead">שתי שאלות קצרות, ותקבלו מאיתנו הצעת מחיר בתוך יום עסקים.</p>
+              <h2 className="sec-title" id="t-brief">מתעניינים?</h2>
+              <p className="sec-lead">השאירו שם ואימייל, ונחזור אליכם בתוך יום עסקים.</p>
             </div>
             <LeadForm lang="he" page="/" />
           </div>
@@ -250,7 +125,7 @@ export default function Home() {
           </nav>
           <div className="foot-in">
             <a className="foot-brand" href="#top">Mazaly<span className="brand-sub"> Digital</span></a>
-            <span>סוכנות דיגיטל · תל אביב · עברית וצרפתית</span>
+            <span>סוכנות דיגיטל · תל אביב</span>
             <span>© 2026</span>
           </div>
         </div>

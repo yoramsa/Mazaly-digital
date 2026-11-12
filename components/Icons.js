@@ -1,11 +1,3 @@
-export function CheckIcon({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M5 12.5l4.5 4.5L19 7.5" />
-    </svg>
-  );
-}
-
 export function CrossIcon({ className = "" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -27,6 +19,26 @@ export function SendIcon({ className = "" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M4 12l16-7-6 16-3-6-7-3Z" />
+    </svg>
+  );
+}
+
+export function SiteIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="6" y="9" width="36" height="30" rx="4" />
+      <path d="M6 17h36" />
+      <path d="M14 25h12M14 31h20" />
+      <path d="M11 13h.01M16 13h.01M21 13h.01" />
+    </svg>
+  );
+}
+
+export function AiIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M8 10h32a2 2 0 0 1 2 2v20a2 2 0 0 1-2 2H22l-8 7v-7H8a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2z" />
+      <path d="M24 15l1.8 4.2L30 21l-4.2 1.8L24 27l-1.8-4.2L18 21l4.2-1.8z" />
     </svg>
   );
 }

@@ -16,9 +16,9 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | שותף דיגיטלי אחד: אתר, CRM, אוטומציה וסוכן AI בוואטסאפ";
+const title = "Mazaly Digital | בניית אתרים ופיתוח עם בינה מלאכותית";
 const description =
-  "Mazaly Digital היא סוכנות דיגיטל בתל אביב שנותנת לעסקים שותף אחד לכל מה שדיגיטלי: אתר, CRM, אוטומציות וסוכן בינה מלאכותית בוואטסאפ. מחיר הקמה נמוך, מנוי חודשי ברור, בעברית ובצרפתית.";
+  "Mazaly Digital היא סוכנות דיגיטל בתל אביב. אנחנו בונים אתרים מהירים וסוכני בינה מלאכותית שעונים ללקוחות בוואטסאפ 24/7, בעברית ובצרפתית.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -57,15 +57,15 @@ const jsonLd = {
       name: "Mazaly Digital",
       url: siteUrl,
       description,
-      slogan: "שותף אחד לכל מה שהוא דיגיטלי",
+      slogan: "אתרים ובינה מלאכותית",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
-      priceRange: "1450-6250 ILS",
+      priceRange: "999+ ILS",
       areaServed: { "@type": "Country", name: "ישראל" },
       address: { "@type": "PostalAddress", addressLocality: "תל אביב", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים מכל תחום" },
-      knowsAbout: ["בניית אתרים", "CRM", "אוטומציה עסקית", "סוכני בינה מלאכותית", "וואטסאפ לעסקים"],
+      knowsAbout: ["בניית אתרים", "סוכני בינה מלאכותית", "וואטסאפ לעסקים"],
     },
   ],
 };
