@@ -174,8 +174,9 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 .demo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
 .demo-card { display: flex; flex-direction: column; background: var(--raise); border: 1px solid var(--line); border-radius: 28px; padding: 24px; transition: translate 0.25s, box-shadow 0.25s; }
 .demo-card:hover { translate: 0 -5px; box-shadow: 0 20px 50px -28px rgba(var(--net), 0.3); }
-.demo-visual { display: flex; align-items: center; justify-content: center; flex: 1; padding: 18px 0 22px; min-height: 220px; }
-.demo-visual .mockup-browser { width: 100%; }
+.demo-visual { display: flex; align-items: center; justify-content: center; flex: 1; padding: 6px 0 18px; min-height: 180px; }
+.demo-img { width: 100%; height: auto; border-radius: 16px; transition: transform 0.3s ease; }
+.demo-card:hover .demo-img { transform: scale(1.02); }
 .demo-badge { display: inline-flex; align-self: flex-start; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.02em; color: var(--accent2-ink); background: color-mix(in srgb, var(--accent2) 28%, var(--raise-2)); border-radius: 999px; padding: 4px 11px; margin-bottom: 14px; }
 .demo-title { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; margin-bottom: 8px; }
 .demo-text { color: var(--dim); font-size: 0.96rem; }

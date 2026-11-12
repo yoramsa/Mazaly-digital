@@ -1,6 +1,7 @@
+import Image from "next/image";
 import Logo from "@/components/Logo";
 import HeroBackground from "@/components/HeroBackground";
-import { HeroVisual, BrowserMockup, ChatMockup } from "@/components/Mockups";
+import { HeroVisual } from "@/components/Mockups";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
@@ -122,7 +123,7 @@ export default function Home() {
                 <article className="demo-card" key={d.id}>
                   <span className="demo-badge">קונספט להמחשה</span>
                   <div className="demo-visual">
-                    {d.kind === "browser" ? <BrowserMockup variant={d.variant} /> : <ChatMockup lines={d.chat} />}
+                    <Image src={d.image} alt={d.title} width={420} height={280} className="demo-img" />
                   </div>
                   <h3 className="demo-title">{d.title}</h3>
                   <p className="demo-text">{d.text}</p>
