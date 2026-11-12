@@ -145,10 +145,15 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="statement-sec rv">
+          <span className="statement-eyebrow">מוכנים להתחיל?</span>
+          <p className="statement-title">בואו <span className="hl" style={{ "--i": 0 }}>נעשה את זה.</span></p>
+        </section>
+
         <section className="sec sec-alt" id="forfaits" aria-labelledby="t-forfaits">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-forfaits">תגידו לנו מה אתם צריכים, אנחנו נבנה את זה.</h2>
+              <h2 className="sec-title" id="t-forfaits">שלוש נקודות התחלה, לכל גודל עסק.</h2>
               <p className="sec-lead">כל עסק שונה, אז כל הצעת מחיר מותאמת אישית. בתור קו מנחה: התחלה מ-{startingPrice.toLocaleString("he-IL")} {currency} להקמה.</p>
             </div>
             <div className="pkg-grid" data-stagger>

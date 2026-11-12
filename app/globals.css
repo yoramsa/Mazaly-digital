@@ -204,6 +204,10 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 .chain-text { color: var(--dim); font-size: 0.98rem; }
 .chain-note { color: var(--dim); max-width: 56ch; margin-inline-start: 8%; }
 
+.statement-sec { padding-block: clamp(56px, 8vw, 96px); text-align: center; }
+.statement-eyebrow { display: block; font-weight: 600; color: var(--dim); font-size: 1.1rem; margin-bottom: 6px; }
+.statement-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.6rem, 7vw, 5.2rem); line-height: 1.08; text-wrap: balance; }
+
 .demo-wrap { display: flex; justify-content: center; }
 .demo-card { width: min(100%, 440px); }
 

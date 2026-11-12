@@ -146,10 +146,15 @@ export default function HomeFr() {
           </div>
         </section>
 
+        <section className="statement-sec rv">
+          <span className="statement-eyebrow">Prêt à vous lancer ?</span>
+          <p className="statement-title">On vous <span className="hl" style={{ "--i": 0 }}>le construit.</span></p>
+        </section>
+
         <section className="sec sec-alt" id="forfaits" aria-labelledby="t-forfaits">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-forfaits">Dites-nous ce qu'il vous faut, on vous le construit.</h2>
+              <h2 className="sec-title" id="t-forfaits">Trois points de départ, pour chaque taille d'entreprise.</h2>
               <p className="sec-lead">Chaque entreprise est différente, donc chaque devis est personnalisé. Comme repère : à partir de {startingPrice.toLocaleString("fr-FR")} {currency} d'installation.</p>
             </div>
             <div className="pkg-grid" data-stagger>
