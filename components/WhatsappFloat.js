@@ -5,8 +5,8 @@ import { WhatsAppIcon } from "@/components/Icons";
 import { track } from "@/lib/analytics";
 
 const TEXT = {
-  he: { label: "דברו איתנו בוואטסאפ", default: "היי, אני רוצה לשמוע על החבילות של Mazaly Digital." },
-  fr: { label: "Parlez-nous sur WhatsApp", default: "Bonjour, je voudrais en savoir plus sur les forfaits Mazaly Digital." },
+  he: { label: "דברו איתנו בוואטסאפ", short: "דברו איתנו", default: "היי, אני רוצה לשמוע על החבילות של Mazaly Digital." },
+  fr: { label: "Parlez-nous sur WhatsApp", short: "Discuter", default: "Bonjour, je voudrais en savoir plus sur les forfaits Mazaly Digital." },
 };
 
 export default function WhatsappFloat({ lang = "he", message }) {
@@ -20,7 +20,8 @@ export default function WhatsappFloat({ lang = "he", message }) {
       aria-label={t.label}
       onClick={() => track("whatsapp_click", { lang, source: "float" })}
     >
-      <WhatsAppIcon />
+      <span className="wa-float-icon"><WhatsAppIcon /></span>
+      <span className="wa-float-label">{t.short}</span>
     </a>
   );
 }

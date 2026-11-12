@@ -4,7 +4,7 @@ import { HeroVisual, BrowserMockup, ChatMockup } from "@/components/Mockups";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon } from "@/components/Icons";
+import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon, WhatsAppIcon } from "@/components/Icons";
 import { services, demos, whyUs, heroChat } from "@/lib/content.fr";
 import { waLink, siteUrl, whatsappDisplay } from "@/lib/site";
 
@@ -165,19 +165,20 @@ export default function HomeFr() {
             </div>
             <div className="contact-grid">
               <LeadForm lang="fr" page="/fr" />
-              <p className="contact-wa">
-                Ou écrivez-nous directement :
+              <div className="contact-wa">
+                <span className="contact-wa-label">Ou écrivez-nous directement :</span>
                 <span className="mag">
                   <a
-                    className="btn btn-ghost btn-wa"
+                    className="btn btn-mag btn-wa"
                     href={waLink("Bonjour, je voudrais des informations sur Mazaly Digital.")}
                     target="_blank"
                     rel="noopener"
                   >
-                    <span className="btn-in">Parlez-nous sur WhatsApp — {whatsappDisplay}</span>
+                    <span className="btn-in"><WhatsAppIcon /> Parlez-nous sur WhatsApp</span>
                   </a>
                 </span>
-              </p>
+                <span className="contact-wa-phone">{whatsappDisplay}</span>
+              </div>
             </div>
           </div>
         </section>
