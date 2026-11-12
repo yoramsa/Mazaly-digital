@@ -1,30 +1,27 @@
-export function BrowserMockup({ variant = "site" }) {
+import { ImageIcon, CustomIcon, StarIcon } from "@/components/Icons";
+
+export function LaptopDevice() {
   return (
-    <div className="mockup mockup-browser">
-      <div className="mockup-bar">
-        <span className="mockup-dot mockup-dot-a"></span>
-        <span className="mockup-dot mockup-dot-b"></span>
-        <span className="mockup-dot mockup-dot-c"></span>
-        <span className="mockup-url">mazaly.digital</span>
-      </div>
-      <div className="mockup-body">
-        <div className="mockup-nav">
-          <span className="mockup-nav-mark"></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className="mockup-hero">
+    <div className="laptop">
+      <div className="laptop-screen">
+        <div className="mockup-body">
+          <div className="mockup-nav">
+            <span className="mockup-nav-mark"></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div className="device-media" aria-hidden="true"></div>
           <span className="mockup-line w1"></span>
-          <span className="mockup-line w2"></span>
           <span className="mockup-cta"></span>
-        </div>
-        <div className="mockup-grid">
-          <div className="mockup-card">{variant === "shop" && <span className="mockup-tag"></span>}</div>
-          <div className="mockup-card">{variant === "shop" && <span className="mockup-tag"></span>}</div>
-          <div className="mockup-card">{variant === "shop" && <span className="mockup-tag"></span>}</div>
+          <div className="device-chips">
+            <span className="device-chip"><ImageIcon /></span>
+            <span className="device-chip alt"><CustomIcon /></span>
+            <span className="device-chip alt2"><StarIcon /></span>
+          </div>
         </div>
       </div>
+      <div className="laptop-base"></div>
     </div>
   );
 }
@@ -50,7 +47,7 @@ export function HeroVisual({ chips }) {
     <div className="hero-visual" id="stage">
       <div className="hero-visual-stage" id="tilt">
         <div className="hero-visual-browser">
-          <BrowserMockup variant="site" />
+          <LaptopDevice />
         </div>
         <div className="hero-visual-phone">
           <ChatMockup lines={chips.chat} />

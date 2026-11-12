@@ -5,7 +5,8 @@ import { HeroVisual } from "@/components/Mockups";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon, WhatsAppIcon } from "@/components/Icons";
+import MobileNav from "@/components/MobileNav";
+import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon, WhatsAppIcon, ChevronIcon } from "@/components/Icons";
 import { services, demos, whyUs, heroChat } from "@/lib/content.he";
 import { waLink, siteUrl, whatsappDisplay } from "@/lib/site";
 
@@ -54,6 +55,16 @@ export default function Home() {
             </div>
             <a className="lang-switch" href="/fr" hrefLang="fr">FR</a>
             <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#contact"><span className="btn-in">בואו נדבר</span></a></span>
+            <MobileNav
+              menuLabel="תפריט"
+              links={[
+                { href: "#services", label: "שירותים" },
+                { href: "#demos", label: "דוגמאות" },
+                { href: "#why", label: "למה אנחנו" },
+              ]}
+              ctaHref="#contact"
+              ctaLabel="בואו נדבר"
+            />
           </nav>
         </div>
       </header>
@@ -69,7 +80,7 @@ export default function Home() {
                   <span className="w" style={{ "--i": 0 }}>העסק</span>{" "}
                   <span className="w" style={{ "--i": 1 }}>שלכם</span>{" "}
                   <span className="w" style={{ "--i": 2 }}>ראוי</span>{" "}
-                  <span className="w" style={{ "--i": 3 }}>ליותר.</span>
+                  <span className="w squiggle" style={{ "--i": 3 }}>ליותר.</span>
                 </span>
                 <span className="hl-line">
                   <span className="w" style={{ "--i": 4 }}>אנחנו</span>{" "}
@@ -82,8 +93,8 @@ export default function Home() {
               </h1>
               <p className="hero-lead">אתרים, חנויות דיגיטליות ופתרונות חכמים שעוזרים לעסק שלכם להתקדם.</p>
               <div className="hero-actions">
-                <span className="mag"><a className="btn btn-mag" href="#contact"><span className="btn-in">בואו נדבר על העסק שלכם</span></a></span>
-                <a className="btn btn-quiet" href="#services"><span className="btn-in">גלו מה אנחנו עושים</span></a>
+                <span className="mag"><a className="btn btn-mag" href="#contact"><span className="btn-in">בואו נדבר על העסק שלכם <ChevronIcon className="chevron" /></span></a></span>
+                <a className="btn btn-quiet" href="#services"><span className="btn-in">גלו מה אנחנו עושים <ChevronIcon className="chevron" /></span></a>
               </div>
             </div>
             <HeroVisual chips={{ chip1: "✓ מותאם למובייל", chip2: "🤖 AI כלול", chat: heroChat }} />

@@ -82,6 +82,40 @@ export function BoltIcon({ className = "" }) {
   );
 }
 
+export function ChevronIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M9 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+export function MenuIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+      <path d="M4 7h16M4 12h16M4 17h16" />
+    </svg>
+  );
+}
+
+export function ImageIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3.5" y="4.5" width="17" height="15" rx="2.5" />
+      <circle cx="8.5" cy="9.5" r="1.6" />
+      <path d="M20.2 15.5 15 10.3a2 2 0 0 0-2.8 0L4.3 18.3" />
+    </svg>
+  );
+}
+
+export function StarIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2.5l2.6 6.2 6.7.5-5.1 4.4 1.6 6.6L12 16.8l-5.8 3.4 1.6-6.6-5.1-4.4 6.7-.5Z" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">

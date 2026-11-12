@@ -5,7 +5,8 @@ import { HeroVisual } from "@/components/Mockups";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon, WhatsAppIcon } from "@/components/Icons";
+import MobileNav from "@/components/MobileNav";
+import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon, WhatsAppIcon, ChevronIcon } from "@/components/Icons";
 import { services, demos, whyUs, heroChat } from "@/lib/content.fr";
 import { waLink, siteUrl, whatsappDisplay } from "@/lib/site";
 
@@ -54,6 +55,16 @@ export default function HomeFr() {
             </div>
             <a className="lang-switch" href="/" hrefLang="he">HE</a>
             <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#contact"><span className="btn-in">Parlons-en</span></a></span>
+            <MobileNav
+              menuLabel="Menu"
+              links={[
+                { href: "#services", label: "Services" },
+                { href: "#demos", label: "Démos" },
+                { href: "#why", label: "Pourquoi nous" },
+              ]}
+              ctaHref="#contact"
+              ctaLabel="Parlons-en"
+            />
           </nav>
         </div>
       </header>
@@ -69,7 +80,7 @@ export default function HomeFr() {
                   <span className="w" style={{ "--i": 0 }}>Votre</span>{" "}
                   <span className="w" style={{ "--i": 1 }}>entreprise</span>{" "}
                   <span className="w" style={{ "--i": 2 }}>mérite</span>{" "}
-                  <span className="w" style={{ "--i": 3 }}>mieux.</span>
+                  <span className="w squiggle" style={{ "--i": 3 }}>mieux.</span>
                 </span>
                 <span className="hl-line">
                   <span className="w" style={{ "--i": 4 }}>On</span>{" "}
@@ -82,8 +93,8 @@ export default function HomeFr() {
               </h1>
               <p className="hero-lead">Sites internet, boutiques digitales et solutions intelligentes qui font avancer votre entreprise.</p>
               <div className="hero-actions">
-                <span className="mag"><a className="btn btn-mag" href="#contact"><span className="btn-in">Parlons de votre entreprise</span></a></span>
-                <a className="btn btn-quiet" href="#services"><span className="btn-in">Découvrez ce qu'on fait</span></a>
+                <span className="mag"><a className="btn btn-mag" href="#contact"><span className="btn-in">Parlons de votre entreprise <ChevronIcon className="chevron" /></span></a></span>
+                <a className="btn btn-quiet" href="#services"><span className="btn-in">Découvrez ce qu'on fait <ChevronIcon className="chevron" /></span></a>
               </div>
             </div>
             <HeroVisual chips={{ chip1: "✓ Optimisé mobile", chip2: "🤖 IA incluse", chat: heroChat }} />
