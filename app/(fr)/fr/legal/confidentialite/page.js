@@ -30,7 +30,7 @@ export default function ConfidentialitePage() {
       <p className="legal-p">Vous pouvez demander à tout moment à consulter, corriger ou supprimer les informations vous concernant, conformément à la loi israélienne sur la protection de la vie privée.</p>
 
       <h2 className="legal-h2">Contact</h2>
-      <p className="legal-p">Pour toute question sur la confidentialité : WhatsApp {whatsappDisplay}, e-mail {emailDisplay}.</p>
+      <p className="legal-p">Pour toute question sur la confidentialité : WhatsApp <bdi>{whatsappDisplay}</bdi>, e-mail {emailDisplay}.</p>
     </LegalLayout>
   );
 }

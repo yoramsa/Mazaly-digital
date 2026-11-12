@@ -19,7 +19,7 @@ export default function AccessibilitePage() {
       <p className="legal-p">Certaines animations du site sont décoratives et ne portent pas d'information. Si vous rencontrez un obstacle d'accessibilité sur ce site, merci de nous le signaler afin que nous puissions le corriger.</p>
 
       <h2 className="legal-h2">Référent accessibilité</h2>
-      <p className="legal-p">Référent accessibilité de Mazaly Digital : {"{{referent_accessibilite}}"}. Vous pouvez aussi nous contacter sur WhatsApp {whatsappDisplay} ou par e-mail {emailDisplay}.</p>
+      <p className="legal-p">Référent accessibilité de Mazaly Digital : {"{{referent_accessibilite}}"}. Vous pouvez aussi nous contacter sur WhatsApp <bdi>{whatsappDisplay}</bdi> ou par e-mail {emailDisplay}.</p>
     </LegalLayout>
   );
 }

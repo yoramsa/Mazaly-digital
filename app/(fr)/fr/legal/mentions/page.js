@@ -26,7 +26,7 @@ export default function MentionsPage() {
       <p className="legal-p">Les présentes conditions sont soumises au droit israélien, et les tribunaux du district de Tel Aviv sont seuls compétents.</p>
 
       <h2 className="legal-h2">Contact</h2>
-      <p className="legal-p">Pour toute question : WhatsApp {whatsappDisplay}, e-mail {emailDisplay}.</p>
+      <p className="legal-p">Pour toute question : WhatsApp <bdi>{whatsappDisplay}</bdi>, e-mail {emailDisplay}.</p>
     </LegalLayout>
   );
 }

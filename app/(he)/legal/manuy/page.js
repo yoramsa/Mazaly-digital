@@ -27,7 +27,7 @@ export default function ManuyPage() {
       <p className="legal-p">אם המנוי מסתיים (בתום ההתחייבות או לאחר תשלום עמלת היציאה), האחסון, הגיבויים, האבטחה והעדכונים השוטפים מופסקים. ניתן לבקש להעביר את קבצי האתר לאחסון אחר.</p>
 
       <h2 className="legal-h2">יצירת קשר</h2>
-      <p className="legal-p">לשאלות על המנוי: וואטסאפ {whatsappDisplay}, אימייל {emailDisplay}.</p>
+      <p className="legal-p">לשאלות על המנוי: וואטסאפ <bdi>{whatsappDisplay}</bdi>, אימייל {emailDisplay}.</p>
     </LegalLayout>
   );
 }

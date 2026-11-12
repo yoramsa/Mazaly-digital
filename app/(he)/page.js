@@ -1,13 +1,15 @@
 import Logo from "@/components/Logo";
 import HeroBackground from "@/components/HeroBackground";
+import { HeroVisual, BrowserMockup, ChatMockup } from "@/components/Mockups";
 import LeadForm from "@/components/LeadForm";
 import PageEffects from "@/components/PageEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { SiteIcon, AiIcon } from "@/components/Icons";
-import { services } from "@/lib/content.he";
-import { waLink, siteUrl } from "@/lib/site";
+import { SiteIcon, AiIcon, EcommerceIcon, CustomIcon, TargetIcon, ChatIcon, BoltIcon } from "@/components/Icons";
+import { services, demos, whyUs, heroChat } from "@/lib/content.he";
+import { waLink, siteUrl, whatsappDisplay } from "@/lib/site";
 
-const ICONS = { site: SiteIcon, ai: AiIcon };
+const SVC_ICONS = { site: SiteIcon, shop: EcommerceIcon, ai: AiIcon, custom: CustomIcon };
+const WHY_ICONS = { target: TargetIcon, chat: ChatIcon, bolt: BoltIcon };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -44,8 +46,13 @@ export default function Home() {
             <span>Mazaly<span className="brand-sub"> Digital</span></span>
           </a>
           <nav className="nav" aria-label="ניווט ראשי">
+            <div className="nav-links">
+              <a className="nav-link" href="#services">שירותים</a>
+              <a className="nav-link" href="#demos">דוגמאות</a>
+              <a className="nav-link" href="#why">למה אנחנו</a>
+            </div>
             <a className="lang-switch" href="/fr" hrefLang="fr">FR</a>
-            <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#brief"><span className="btn-in">להשאיר פרטים</span></a></span>
+            <span className="mag nav-cta-zone"><a className="btn btn-mag" href="#contact"><span className="btn-in">בואו נדבר</span></a></span>
           </nav>
         </div>
       </header>
@@ -55,26 +62,30 @@ export default function Home() {
           <HeroBackground />
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow"><span className="eyebrow-dot"></span>סוכנות דיגיטל · תל אביב</p>
+              <p className="eyebrow"><span className="eyebrow-dot"></span>סטודיו דיגיטלי · ישראל</p>
               <h1 className="hero-title">
-                <span className="w" style={{ "--i": 0 }}>אתר</span>{" "}
-                <span className="w" style={{ "--i": 1 }}>שעובד</span>{" "}
-                <span className="w" style={{ "--i": 2 }}>בשבילכם,</span>{" "}
-                <span className="w hl" style={{ "--i": 3 }}>גם כשאתם ישנים.</span>
+                <span className="hl-line">
+                  <span className="w" style={{ "--i": 0 }}>העסק</span>{" "}
+                  <span className="w" style={{ "--i": 1 }}>שלכם</span>{" "}
+                  <span className="w" style={{ "--i": 2 }}>ראוי</span>{" "}
+                  <span className="w" style={{ "--i": 3 }}>ליותר.</span>
+                </span>
+                <span className="hl-line">
+                  <span className="w" style={{ "--i": 4 }}>אנחנו</span>{" "}
+                  <span className="w" style={{ "--i": 5 }}>כאן</span>{" "}
+                  <span className="w" style={{ "--i": 6 }}>כדי</span>{" "}
+                  <span className="w hl" style={{ "--i": 7 }}>לבנות</span>{" "}
+                  <span className="w hl" style={{ "--i": 8 }}>את</span>{" "}
+                  <span className="w hl" style={{ "--i": 9 }}>זה.</span>
+                </span>
               </h1>
-              <p className="hero-lead">בונים לכם אתר מהיר וסוכן בינה מלאכותית שעונה ללקוחות בוואטסאפ, 24/7.</p>
+              <p className="hero-lead">אתרים, חנויות דיגיטליות ופתרונות חכמים שעוזרים לעסק שלכם להתקדם.</p>
               <div className="hero-actions">
-                <span className="mag"><a className="btn btn-mag" href="#brief"><span className="btn-in">להשאיר פרטים</span></a></span>
-                <a
-                  className="btn btn-quiet"
-                  href={waLink("היי, אני רוצה לשמוע פרטים על בניית אתר וסוכן AI.")}
-                  target="_blank"
-                  rel="noopener"
-                >
-                  <span className="btn-in">לדבר בוואטסאפ</span>
-                </a>
+                <span className="mag"><a className="btn btn-mag" href="#contact"><span className="btn-in">בואו נדבר על העסק שלכם</span></a></span>
+                <a className="btn btn-quiet" href="#services"><span className="btn-in">גלו מה אנחנו עושים</span></a>
               </div>
             </div>
+            <HeroVisual chips={{ chip1: "✓ מותאם למובייל", chip2: "🤖 AI כלול", chat: heroChat }} />
           </div>
         </section>
 
@@ -82,11 +93,11 @@ export default function Home() {
           <i className="orb orb-1" aria-hidden="true"></i>
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-services">מה אנחנו עושים.</h2>
+              <h2 className="sec-title" id="t-services">מה אנחנו עושים בשבילכם.</h2>
             </div>
             <div className="svc-grid" data-stagger>
               {services.map((s) => {
-                const Icon = ICONS[s.icon];
+                const Icon = SVC_ICONS[s.icon];
                 return (
                   <article className="svc-card" key={s.id}>
                     <span className="svc-icon"><Icon /></span>
@@ -99,18 +110,75 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="sec sec-alt" id="demos" aria-labelledby="t-demos">
+          <i className="orb orb-2" aria-hidden="true"></i>
+          <div className="wrap">
+            <div className="sec-head rv">
+              <h2 className="sec-title" id="t-demos">קצת מהיכולות שלנו.</h2>
+              <p className="sec-lead">דוגמאות קונספט להמחשה — לא פרויקטים של לקוחות קיימים.</p>
+            </div>
+            <div className="demo-grid" data-stagger>
+              {demos.map((d) => (
+                <article className="demo-card" key={d.id}>
+                  <span className="demo-badge">קונספט להמחשה</span>
+                  <div className="demo-visual">
+                    {d.kind === "browser" ? <BrowserMockup variant={d.variant} /> : <ChatMockup lines={d.chat} />}
+                  </div>
+                  <h3 className="demo-title">{d.title}</h3>
+                  <p className="demo-text">{d.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="sec" id="why" aria-labelledby="t-why">
+          <div className="wrap">
+            <div className="sec-head rv">
+              <h2 className="sec-title" id="t-why">למה Mazaly Digital.</h2>
+            </div>
+            <div className="why-grid rv">
+              {whyUs.map((w) => {
+                const Icon = WHY_ICONS[w.icon];
+                return (
+                  <div className="why-item" key={w.id}>
+                    <span className="why-icon"><Icon /></span>
+                    <h3 className="why-title">{w.title}</h3>
+                    <p className="why-text">{w.text}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="statement-sec rv">
           <span className="statement-eyebrow">מוכנים להתחיל?</span>
           <p className="statement-title">בואו <span className="hl" style={{ "--i": 0 }}>נעשה את זה.</span></p>
         </section>
 
-        <section className="sec sec-alt" id="brief" aria-labelledby="t-brief">
+        <section className="sec sec-alt" id="contact" aria-labelledby="t-contact">
           <div className="wrap">
             <div className="sec-head rv">
-              <h2 className="sec-title" id="t-brief">מתעניינים?</h2>
-              <p className="sec-lead">השאירו שם ואימייל, ונחזור אליכם בתוך יום עסקים.</p>
+              <h2 className="sec-title" id="t-contact">יש לכם רעיון? בואו נדבר.</h2>
+              <p className="sec-lead">השאירו פרטים ונחזור אליכם בהקדם.</p>
             </div>
-            <LeadForm lang="he" page="/" />
+            <div className="contact-grid">
+              <LeadForm lang="he" page="/" />
+              <p className="contact-wa">
+                או דברו איתנו ישר:
+                <span className="mag">
+                  <a
+                    className="btn btn-ghost btn-wa"
+                    href={waLink("היי, אני רוצה לשמוע פרטים על Mazaly Digital.")}
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <span className="btn-in">דברו איתנו בוואטסאפ — <bdi>{whatsappDisplay}</bdi></span>
+                  </a>
+                </span>
+              </p>
+            </div>
           </div>
         </section>
       </main>
@@ -125,7 +193,7 @@ export default function Home() {
           </nav>
           <div className="foot-in">
             <a className="foot-brand" href="#top">Mazaly<span className="brand-sub"> Digital</span></a>
-            <span>סוכנות דיגיטל · תל אביב</span>
+            <span>סטודיו דיגיטלי · ישראל</span>
             <span>© 2026</span>
           </div>
         </div>

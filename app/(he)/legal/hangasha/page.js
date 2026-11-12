@@ -19,7 +19,7 @@ export default function HangashaPage() {
       <p className="legal-p">חלק מהאנימציות העיצוביות באתר הן דקורטיביות ולא נושאות מידע. אם נתקלתם במכשול נגישות באתר, נודה לכם על הדיווח כדי שנוכל לתקן אותו.</p>
 
       <h2 className="legal-h2">רכז הנגישות</h2>
-      <p className="legal-p">רכז/ת הנגישות של Mazaly Digital: {"{{רכז_נגישות}}"}. ניתן לפנות גם בוואטסאפ {whatsappDisplay} או באימייל {emailDisplay}.</p>
+      <p className="legal-p">רכז/ת הנגישות של Mazaly Digital: {"{{רכז_נגישות}}"}. ניתן לפנות גם בוואטסאפ <bdi>{whatsappDisplay}</bdi> או באימייל {emailDisplay}.</p>
     </LegalLayout>
   );
 }

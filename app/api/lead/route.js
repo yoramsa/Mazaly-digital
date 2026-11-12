@@ -24,11 +24,11 @@ export async function POST(req) {
     return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
 
-  const { name, email, lang, page, website } = data || {};
+  const { name, contact, message, lang, page, website } = data || {};
   if (website) {
     return Response.json({ ok: true });
   }
-  if (!name || !email) {
+  if (!name || !contact) {
     return Response.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 
@@ -38,7 +38,8 @@ export async function POST(req) {
 
   const summary = [
     `שם / Nom: ${name}`,
-    `אימייל / E-mail: ${email}`,
+    `טלפון / אימייל — Téléphone / E-mail: ${contact}`,
+    `הודעה / Message: ${message || "-"}`,
     `שפה / Langue: ${lang || "-"}`,
     `עמוד / Page: ${page || "-"}`,
   ].join("\n");

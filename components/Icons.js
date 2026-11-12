@@ -43,6 +43,45 @@ export function AiIcon({ className = "" }) {
   );
 }
 
+export function EcommerceIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M11 15h26l-2.4 17.2a3 3 0 0 1-3 2.8H16.4a3 3 0 0 1-3-2.8L11 15Z" />
+      <path d="M17 15v-2a7 7 0 0 1 14 0v2" />
+      <circle cx="19" cy="23" r="0.01" />
+      <path d="M18.5 23h.01M29.5 23h.01" strokeWidth="3.4" />
+    </svg>
+  );
+}
+
+export function CustomIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M17 14 7 24l10 10" />
+      <path d="M31 14l10 10-10 10" />
+      <path d="M27 11 21 37" />
+    </svg>
+  );
+}
+
+export function TargetIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="24" cy="24" r="15" />
+      <circle cx="24" cy="24" r="8.5" />
+      <circle cx="24" cy="24" r="2.2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+export function BoltIcon({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M26 6 12 27h10l-2 15 16-23H26l2-13Z" />
+    </svg>
+  );
+}
+
 export function WhatsAppIcon() {
   return (
     <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">

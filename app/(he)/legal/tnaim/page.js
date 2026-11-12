@@ -26,7 +26,7 @@ export default function TnaimPage() {
       <p className="legal-p">על תנאים אלה יחולו דיני מדינת ישראל, וסמכות השיפוט הבלעדית תהיה לבתי המשפט במחוז תל אביב.</p>
 
       <h2 className="legal-h2">יצירת קשר</h2>
-      <p className="legal-p">לשאלות בנוגע לתנאים אלה: וואטסאפ {whatsappDisplay}, אימייל {emailDisplay}.</p>
+      <p className="legal-p">לשאלות בנוגע לתנאים אלה: וואטסאפ <bdi>{whatsappDisplay}</bdi>, אימייל {emailDisplay}.</p>
     </LegalLayout>
   );
 }

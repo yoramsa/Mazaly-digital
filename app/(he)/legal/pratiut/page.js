@@ -30,7 +30,7 @@ export default function PratiutPage() {
       <p className="legal-p">אתם יכולים לבקש בכל עת לעיין במידע שנשמר עליכם, לתקן אותו או למחוק אותו, בהתאם לחוק הגנת הפרטיות הישראלי.</p>
 
       <h2 className="legal-h2">יצירת קשר</h2>
-      <p className="legal-p">לשאלות על פרטיות: וואטסאפ {whatsappDisplay}, אימייל {emailDisplay}.</p>
+      <p className="legal-p">לשאלות על פרטיות: וואטסאפ <bdi>{whatsappDisplay}</bdi>, אימייל {emailDisplay}.</p>
     </LegalLayout>
   );
 }

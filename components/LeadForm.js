@@ -6,40 +6,45 @@ import { track } from "@/lib/analytics";
 
 const TEXT = {
   he: {
-    nameLabel: "שם מלא",
+    nameLabel: "שם",
     namePh: "איך קוראים לכם?",
-    emailLabel: "אימייל",
-    emailPh: "האימייל שלכם",
-    submit: "אני מעוניין/ת",
+    contactLabel: "טלפון או אימייל",
+    contactPh: "מספר טלפון או אימייל",
+    messageLabel: "הודעה (לא חובה)",
+    messagePh: "רוצים לספר לנו עוד משהו?",
+    submit: "שלחו לי פרטים",
     sending: "שולח...",
-    success: "תודה! קיבלנו את הפרטים ונחזור אליכם בתוך יום עסקים אחד.",
+    success: "תודה! קיבלנו את הפרטים ונחזור אליכם בהקדם.",
     error: "משהו השתבש. אפשר לכתוב לנו ישר בוואטסאפ:",
-    required: "נא למלא שם ואימייל.",
+    required: "נא למלא שם וטלפון או אימייל.",
   },
   fr: {
-    nameLabel: "Nom complet",
+    nameLabel: "Nom",
     namePh: "Comment vous appelez-vous ?",
-    emailLabel: "E-mail",
-    emailPh: "Votre adresse e-mail",
-    submit: "Je suis intéressé(e)",
+    contactLabel: "Téléphone ou e-mail",
+    contactPh: "Votre numéro ou votre e-mail",
+    messageLabel: "Message (facultatif)",
+    messagePh: "Un détail à nous partager ?",
+    submit: "On me recontacte",
     sending: "Envoi...",
-    success: "Merci ! Nous avons bien reçu votre demande et revenons vers vous dans un jour ouvré.",
+    success: "Merci ! Nous avons bien reçu votre demande et revenons vers vous rapidement.",
     error: "Un problème est survenu. Vous pouvez nous écrire directement sur WhatsApp :",
-    required: "Merci de renseigner votre nom et votre e-mail.",
+    required: "Merci de renseigner votre nom et un téléphone ou un e-mail.",
   },
 };
 
 export default function LeadForm({ lang = "he", page = "/" }) {
   const t = TEXT[lang] || TEXT.he;
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [contact, setContact] = useState("");
+  const [message, setMessage] = useState("");
   const [honeypot, setHoneypot] = useState("");
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
 
   async function onSubmit(e) {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) {
+    if (!name.trim() || !contact.trim()) {
       setError(t.required);
       return;
     }
@@ -53,7 +58,7 @@ export default function LeadForm({ lang = "he", page = "/" }) {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, lang, page, website: honeypot }),
+        body: JSON.stringify({ name, contact, message, lang, page, website: honeypot }),
       });
       if (!res.ok) throw new Error("bad_status");
       setStatus("success");
@@ -90,13 +95,17 @@ export default function LeadForm({ lang = "he", page = "/" }) {
           <input className="input" id="lead-name" value={name} onChange={(e) => setName(e.target.value)} placeholder={t.namePh} />
         </div>
         <div className="lead-field">
-          <label className="field-label" htmlFor="lead-email">{t.emailLabel}</label>
-          <input className="input" id="lead-email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t.emailPh} />
+          <label className="field-label" htmlFor="lead-contact">{t.contactLabel}</label>
+          <input className="input" id="lead-contact" value={contact} onChange={(e) => setContact(e.target.value)} placeholder={t.contactPh} />
+        </div>
+        <div className="lead-field lead-field-full">
+          <label className="field-label" htmlFor="lead-message">{t.messageLabel}</label>
+          <textarea className="textarea" id="lead-message" value={message} onChange={(e) => setMessage(e.target.value)} placeholder={t.messagePh} />
         </div>
       </div>
       {error && <p className="lead-error">{error}</p>}
       {status === "error" && (
-        <p className="lead-error">{t.error} <a href={whatsappHref} target="_blank" rel="noopener">{whatsappDisplay}</a></p>
+        <p className="lead-error">{t.error} <a href={whatsappHref} target="_blank" rel="noopener"><bdi>{whatsappDisplay}</bdi></a></p>
       )}
       <span className="mag">
         <button type="submit" className="btn btn-mag" disabled={status === "sending"}>

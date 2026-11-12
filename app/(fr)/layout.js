@@ -16,9 +16,9 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | Création de site et développement avec l'intelligence artificielle";
+const title = "Mazaly Digital | Sites, e-commerce et IA pour les entreprises en Israël";
 const description =
-  "Mazaly Digital est une agence digitale de Tel Aviv. Nous créons des sites rapides et des agents d'intelligence artificielle qui répondent aux clients sur WhatsApp 24h/24, en hébreu et en français.";
+  "Mazaly Digital est un studio digital qui travaille avec les petites et moyennes entreprises en Israël. Nous créons des sites, des boutiques en ligne, des agents IA et automatisations, et des solutions sur mesure, en hébreu et en français.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,7 +45,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#faf9fd",
+  themeColor: "#f8f9fc",
 };
 
 const jsonLd = {
@@ -63,8 +63,8 @@ const jsonLd = {
       areaServed: { "@type": "Country", name: "Israël" },
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
-      audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, tous secteurs" },
-      knowsAbout: ["Création de sites", "Agents d'intelligence artificielle", "WhatsApp pour entreprises"],
+      audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, commerçants et indépendants" },
+      knowsAbout: ["Création de sites", "E-commerce", "Agents d'intelligence artificielle et automatisations", "Solutions digitales sur mesure"],
     },
   ],
 };

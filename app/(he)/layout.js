@@ -16,9 +16,9 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | בניית אתרים ופיתוח עם בינה מלאכותית";
+const title = "Mazaly Digital | בניית אתרים, חנויות דיגיטליות ו-AI לעסקים";
 const description =
-  "Mazaly Digital היא סוכנות דיגיטל בתל אביב. אנחנו בונים אתרים מהירים וסוכני בינה מלאכותית שעונים ללקוחות בוואטסאפ 24/7, בעברית ובצרפתית.";
+  "Mazaly Digital הוא סטודיו דיגיטלי שעובד עם עסקים קטנים ובינוניים בישראל. אנחנו בונים אתרים, חנויות דיגיטליות, סוכני AI ואוטומציות ופתרונות מותאמים אישית, בעברית ובצרפתית.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -45,7 +45,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#faf9fd",
+  themeColor: "#f8f9fc",
 };
 
 const jsonLd = {
@@ -57,15 +57,15 @@ const jsonLd = {
       name: "Mazaly Digital",
       url: siteUrl,
       description,
-      slogan: "אתרים ובינה מלאכותית",
+      slogan: "סטודיו דיגיטלי לעסקים ישראליים",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
       priceRange: "999+ ILS",
       areaServed: { "@type": "Country", name: "ישראל" },
       address: { "@type": "PostalAddress", addressLocality: "תל אביב", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
-      audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים מכל תחום" },
-      knowsAbout: ["בניית אתרים", "סוכני בינה מלאכותית", "וואטסאפ לעסקים"],
+      audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים, סוחרים ועצמאים" },
+      knowsAbout: ["בניית אתרים", "חנויות דיגיטליות", "סוכני בינה מלאכותית ואוטומציות", "פתרונות דיגיטליים מותאמים אישית"],
     },
   ],
 };

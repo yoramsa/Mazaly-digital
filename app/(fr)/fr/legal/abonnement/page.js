@@ -27,7 +27,7 @@ export default function AbonnementPage() {
       <p className="legal-p">Si l'abonnement prend fin (à l'issue de l'engagement ou après paiement des frais de sortie), l'hébergement, les sauvegardes, la sécurité et les mises à jour courantes s'arrêtent. Vous pouvez demander le transfert des fichiers du site vers un autre hébergement.</p>
 
       <h2 className="legal-h2">Contact</h2>
-      <p className="legal-p">Pour toute question sur l'abonnement : WhatsApp {whatsappDisplay}, e-mail {emailDisplay}.</p>
+      <p className="legal-p">Pour toute question sur l'abonnement : WhatsApp <bdi>{whatsappDisplay}</bdi>, e-mail {emailDisplay}.</p>
     </LegalLayout>
   );
 }
