@@ -1,4 +1,4 @@
-import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
+import { Frank_Ruhl_Libre, Rubik, Karantina, Heebo } from "next/font/google";
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
 
@@ -16,9 +16,23 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | בניית אתרים ופיתוח עם בינה מלאכותית";
+const karantina = Karantina({
+  subsets: ["hebrew", "latin"],
+  weight: ["700"],
+  variable: "--font-karantina",
+  display: "swap",
+});
+
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-heebo",
+  display: "swap",
+});
+
+const title = "מזלי דיגיטל — אנחנו בונים ויטרינות דיגיטליות למותגים";
 const description =
-  "Mazaly Digital היא סוכנות דיגיטל בתל אביב. אנחנו בונים אתרים מהירים וסוכני בינה מלאכותית שעונים ללקוחות בוואטסאפ 24/7, בעברית ובצרפתית.";
+  "מזלי דיגיטל בונה למותגים ויטרינות דיגיטליות שלא נראו בשום מקום: אתרים עם אפקטים, אפליקציות, CRM, סוכני AI בוואטסאפ ואוטומציה.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,7 +47,7 @@ export const metadata = {
     title,
     description,
     url: siteUrl,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mazaly Digital: שותף אחד לכל מה שהוא דיגיטלי" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "מזלי דיגיטל — ויטרינות דיגיטליות למותגים" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -54,10 +68,11 @@ const jsonLd = {
     {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteUrl}/#organization`,
-      name: "Mazaly Digital",
+      name: "Mazaly Digital — מזלי דיגיטל",
       url: siteUrl,
       description,
-      slogan: "אתרים ובינה מלאכותית",
+      slogan: "אנחנו לא בונים אתרים. אנחנו בונים ויטרינות.",
+      telephone: "+972-54-567-0414",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
       priceRange: "999+ ILS",
@@ -65,14 +80,14 @@ const jsonLd = {
       address: { "@type": "PostalAddress", addressLocality: "תל אביב", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים מכל תחום" },
-      knowsAbout: ["בניית אתרים", "סוכני בינה מלאכותית", "וואטסאפ לעסקים"],
+      knowsAbout: ["ויטרינות דיגיטליות", "בניית אתרים", "אפליקציות", "סוכני בינה מלאכותית", "CRM ואוטומציה"],
     },
   ],
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${display.variable} ${body.variable}`}>
+    <html lang="he" dir="rtl" className={`${display.variable} ${body.variable} ${karantina.variable} ${heebo.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

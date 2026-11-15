@@ -1,4 +1,4 @@
-import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
+import { Frank_Ruhl_Libre, Rubik, Karantina, Heebo } from "next/font/google";
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
 
@@ -16,9 +16,23 @@ const body = Rubik({
   display: "swap",
 });
 
-const title = "Mazaly Digital | Création de site et développement avec l'intelligence artificielle";
+const karantina = Karantina({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-karantina",
+  display: "swap",
+});
+
+const heebo = Heebo({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-heebo",
+  display: "swap",
+});
+
+const title = "Mazaly Digital — On ne fait pas des sites, on fait des vitrines";
 const description =
-  "Mazaly Digital est une agence digitale de Tel Aviv. Nous créons des sites rapides et des agents d'intelligence artificielle qui répondent aux clients sur WhatsApp 24h/24, en hébreu et en français.";
+  "Mazaly Digital crée pour les marques des vitrines digitales jamais vues ailleurs : sites à effets, applications, CRM, agents IA WhatsApp et automatisation, à Tel Aviv.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -33,7 +47,7 @@ export const metadata = {
     title,
     description,
     url: `${siteUrl}/fr`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mazaly Digital" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mazaly Digital — Vitrines digitales pour les marques" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -57,6 +71,8 @@ const jsonLd = {
       name: "Mazaly Digital",
       url: `${siteUrl}/fr`,
       description,
+      slogan: "On ne fait pas des sites. On fait des vitrines.",
+      telephone: "+972-54-567-0414",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/favicon.svg`,
       priceRange: "999+ ILS",
@@ -64,14 +80,14 @@ const jsonLd = {
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, tous secteurs" },
-      knowsAbout: ["Création de sites", "Agents d'intelligence artificielle", "WhatsApp pour entreprises"],
+      knowsAbout: ["Vitrines digitales", "Création de sites", "Applications", "Agents d'intelligence artificielle", "CRM et automatisation"],
     },
   ],
 };
 
 export default function FrRootLayout({ children }) {
   return (
-    <html lang="fr" dir="ltr" className={`${display.variable} ${body.variable}`}>
+    <html lang="fr" dir="ltr" className={`${display.variable} ${body.variable} ${karantina.variable} ${heebo.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
