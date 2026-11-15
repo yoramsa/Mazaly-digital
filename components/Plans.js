@@ -14,10 +14,10 @@ export default function Plans({ content }) {
               <p className="mz-plan-desc">{plan.desc}</p>
               <div className="mz-price-row">
                 <span className="mz-price-label">
-                  {content.setupLabel} <strong className="mz-price-value">{content.pricePlaceholder}</strong>
+                  {content.setupLabel} <strong className="mz-price-value">{plan.setupPrice}</strong>
                 </span>
                 <span className="mz-price-label">
-                  {content.monthlyLabel} <strong className="mz-price-value mz-price-value-lg">{content.pricePlaceholder}</strong>
+                  {content.monthlyLabel} <strong className="mz-price-value mz-price-value-lg">{plan.monthlyPrice}</strong>
                 </span>
               </div>
               {plan.features.map((feature) => (

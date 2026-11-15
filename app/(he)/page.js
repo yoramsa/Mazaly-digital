@@ -59,7 +59,7 @@ export default function Home() {
             <a className="mz-nav-link" href="#services">{nav.services}</a>
             <a className="mz-nav-link" href="#process">{nav.process}</a>
             <a className="mz-nav-link" href="#plans">{nav.plans}</a>
-            <a className="mz-nav-link" href="/fr" hrefLang="fr">FR</a>
+            <a className="mz-lang-switch" href="/fr" hrefLang="fr" lang="fr" aria-label="Passer en français">FR</a>
             <a className="mz-ghost mz-nav-cta" href={waLink(hero.ctaPrimaryMessage)}>{nav.whatsapp}</a>
           </nav>
         </div>
