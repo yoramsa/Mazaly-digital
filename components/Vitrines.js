@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import VitrineCard from "@/components/VitrineCard";
+import VitrineModal from "@/components/VitrineModal";
 
 export default function Vitrines({ content, waHref }) {
+  const [openItem, setOpenItem] = useState(null);
+
   return (
     <section id="vitrines">
       <div className="mz-vitrines-wrap">
@@ -13,7 +19,7 @@ export default function Vitrines({ content, waHref }) {
         </div>
         <div className="mz-grid-vitrines">
           {content.items.map((item) => (
-            <VitrineCard item={item} key={item.id} />
+            <VitrineCard item={item} effectCta={content.effectCta} onOpen={setOpenItem} key={item.id} />
           ))}
           <a className="mz-vitrine mz-vitrine-next mz-reveal" href={waHref}>
             <span className="mz-vitrine-next-eyebrow">{content.next.eyebrow}</span>
@@ -23,6 +29,7 @@ export default function Vitrines({ content, waHref }) {
           </a>
         </div>
       </div>
+      {openItem && <VitrineModal item={openItem} closeLabel={content.closeLabel} onClose={() => setOpenItem(null)} />}
     </section>
   );
 }

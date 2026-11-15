@@ -1,0 +1,47 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+
+export default function VitrineModal({ item, closeLabel, onClose }) {
+  const closeRef = useRef(null);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus();
+
+    function onKeyDown(e) {
+      if (e.key === "Escape") onClose();
+    }
+    document.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose]);
+
+  return (
+    <div className="mz-modal-overlay" onClick={onClose}>
+      <div className="mz-modal" role="dialog" aria-modal="true" aria-label={item.title} onClick={(e) => e.stopPropagation()}>
+        <button type="button" className="mz-modal-close" onClick={onClose} aria-label={closeLabel} ref={closeRef}>
+          ×
+        </button>
+        <div className="mz-modal-stage">
+          <Image className="mz-modal-img" src={item.image} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 720px" />
+        </div>
+        <div className="mz-modal-info">
+          <span className="mz-modal-badge">{item.badge}</span>
+          <h3 className="mz-modal-title">{item.title}</h3>
+          <p className="mz-modal-desc">{item.desc}</p>
+          <div className="mz-tags">
+            {item.tags.map((tag) => (
+              <span className="mz-tag" key={tag}>{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
