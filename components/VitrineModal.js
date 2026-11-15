@@ -1,10 +1,27 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
+import ParfumEffect from "@/components/vitrine-effects/ParfumEffect";
+import SneakersEffect from "@/components/vitrine-effects/SneakersEffect";
+import CafeEffect from "@/components/vitrine-effects/CafeEffect";
+import BijouxEffect from "@/components/vitrine-effects/BijouxEffect";
+import RestaurantEffect from "@/components/vitrine-effects/RestaurantEffect";
+import ModeEffect from "@/components/vitrine-effects/ModeEffect";
+import JudaicaEffect from "@/components/vitrine-effects/JudaicaEffect";
+
+const effectById = {
+  parfum: ParfumEffect,
+  sneakers: SneakersEffect,
+  cafe: CafeEffect,
+  bijoux: BijouxEffect,
+  restaurant: RestaurantEffect,
+  mode: ModeEffect,
+  judaica: JudaicaEffect,
+};
 
 export default function VitrineModal({ item, closeLabel, onClose }) {
   const closeRef = useRef(null);
+  const Effect = effectById[item.id];
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -29,7 +46,7 @@ export default function VitrineModal({ item, closeLabel, onClose }) {
           ×
         </button>
         <div className="mz-modal-stage">
-          <Image className="mz-modal-img" src={item.image} alt={item.alt} fill sizes="(max-width: 900px) 100vw, 720px" />
+          <Effect item={item} />
         </div>
         <div className="mz-modal-info">
           <span className="mz-modal-badge">{item.badge}</span>
