@@ -1,3 +1,4 @@
+import { Karantina, Heebo } from "next/font/google";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Vitrines from "@/components/Vitrines";
@@ -7,6 +8,20 @@ import Plans from "@/components/Plans";
 import FinalCta from "@/components/FinalCta";
 import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, process, plans, finalCta, footer } from "@/lib/content.he";
 import { waLink, siteUrl } from "@/lib/site";
+
+const karantina = Karantina({
+  subsets: ["hebrew", "latin"],
+  weight: ["700"],
+  variable: "--font-karantina",
+  display: "swap",
+});
+
+const heebo = Heebo({
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "700", "900"],
+  variable: "--font-heebo",
+  display: "swap",
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -30,7 +45,7 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <div className="mz-page" id="page">
+    <div className={`mz-page ${karantina.variable} ${heebo.variable}`} id="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <header className="mz-header">

@@ -1,34 +1,5 @@
-import { Frank_Ruhl_Libre, Rubik, Karantina, Heebo } from "next/font/google";
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
-
-const display = Frank_Ruhl_Libre({
-  subsets: ["hebrew", "latin"],
-  weight: ["500", "700", "900"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const body = Rubik({
-  subsets: ["hebrew", "latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const karantina = Karantina({
-  subsets: ["hebrew", "latin"],
-  weight: ["700"],
-  variable: "--font-karantina",
-  display: "swap",
-});
-
-const heebo = Heebo({
-  subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "700", "900"],
-  variable: "--font-heebo",
-  display: "swap",
-});
 
 const title = "מזלי דיגיטל — אנחנו בונים ויטרינות דיגיטליות למותגים";
 const description =
@@ -87,7 +58,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="he" dir="rtl" className={`${display.variable} ${body.variable} ${karantina.variable} ${heebo.variable}`}>
+    <html lang="he" dir="rtl">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

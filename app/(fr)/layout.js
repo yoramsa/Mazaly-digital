@@ -1,34 +1,5 @@
-import { Frank_Ruhl_Libre, Rubik, Karantina, Heebo } from "next/font/google";
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
-
-const display = Frank_Ruhl_Libre({
-  subsets: ["latin"],
-  weight: ["500", "700", "900"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const body = Rubik({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const karantina = Karantina({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-karantina",
-  display: "swap",
-});
-
-const heebo = Heebo({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "900"],
-  variable: "--font-heebo",
-  display: "swap",
-});
 
 const title = "Mazaly Digital — On ne fait pas des sites, on fait des vitrines";
 const description =
@@ -87,7 +58,7 @@ const jsonLd = {
 
 export default function FrRootLayout({ children }) {
   return (
-    <html lang="fr" dir="ltr" className={`${display.variable} ${body.variable} ${karantina.variable} ${heebo.variable}`}>
+    <html lang="fr" dir="ltr">
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

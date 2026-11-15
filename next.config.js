@@ -22,6 +22,9 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    minimumCacheTTL: 31536000,
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },

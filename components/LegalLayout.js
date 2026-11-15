@@ -1,6 +1,23 @@
+import { Frank_Ruhl_Libre, Rubik } from "next/font/google";
 import Logo from "@/components/Logo";
 import WhatsappFloat from "@/components/WhatsappFloat";
 import { siteUrl } from "@/lib/site";
+
+const display = Frank_Ruhl_Libre({
+  subsets: ["hebrew", "latin"],
+  weight: ["500", "700", "900"],
+  variable: "--font-display",
+  display: "swap",
+  preload: false,
+});
+
+const body = Rubik({
+  subsets: ["hebrew", "latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
+  display: "swap",
+  preload: false,
+});
 
 const TEXT = {
   he: { back: "← חזרה לדף הבית", updated: "עודכן לאחרונה: נובמבר 2026", home: "דף הבית" },
@@ -18,7 +35,7 @@ export default function LegalLayout({ lang = "he", homeHref = "/", path, title, 
     ],
   };
   return (
-    <div className="page">
+    <div className={`page ${display.variable} ${body.variable}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
       <WhatsappFloat lang={lang} />
       <header className="top">
