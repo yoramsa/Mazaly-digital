@@ -30,8 +30,8 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/plus", destination: "/#forfaits", permanent: true },
-      { source: "/fr/plus", destination: "/fr#forfaits", permanent: true },
+      { source: "/plus", destination: "/#plans", permanent: true },
+      { source: "/fr/plus", destination: "/fr#plans", permanent: true },
     ];
   },
 };

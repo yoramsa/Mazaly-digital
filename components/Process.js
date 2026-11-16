@@ -1,6 +1,6 @@
 export default function Process({ content }) {
   return (
-    <section id="process">
+    <section className="mz-section-alt" id="process">
       <div className="mz-process-wrap">
         <div className="mz-section-head-simple mz-reveal">
           <span className="mz-eyebrow-label">{content.eyebrow}</span>

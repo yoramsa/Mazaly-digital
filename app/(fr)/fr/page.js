@@ -3,10 +3,12 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Vitrines from "@/components/Vitrines";
 import Services from "@/components/Services";
+import WhyUs from "@/components/WhyUs";
 import Process from "@/components/Process";
 import Plans from "@/components/Plans";
 import Contact from "@/components/Contact";
-import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, process, plans, contact, footer } from "@/lib/content.fr";
+import WhatsappFloat from "@/components/WhatsappFloat";
+import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, whyUs, process, plans, contact, footer } from "@/lib/content.fr";
 import { waLink, siteUrl } from "@/lib/site";
 
 export const viewport = { themeColor: "#07050d" };
@@ -49,6 +51,7 @@ export default function HomeFr() {
   return (
     <div className={`mz-page ${karantina.variable} ${heebo.variable}`} id="page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <WhatsappFloat lang="fr" />
 
       <header className="mz-header">
         <div className="mz-header-in">
@@ -57,8 +60,8 @@ export default function HomeFr() {
             <span className="mz-brand-name">{brand.name}<span className="mz-brand-sub"> {brand.sub}</span></span>
           </a>
           <nav className="mz-nav" aria-label="Navigation principale">
-            <a className="mz-nav-link" href="#vitrines">{nav.vitrines}</a>
             <a className="mz-nav-link" href="#services">{nav.services}</a>
+            <a className="mz-nav-link" href="#vitrines">{nav.vitrines}</a>
             <a className="mz-nav-link" href="#process">{nav.process}</a>
             <a className="mz-nav-link" href="#plans">{nav.plans}</a>
             <a className="mz-nav-link" href="#contact">{nav.contact}</a>
@@ -75,9 +78,11 @@ export default function HomeFr() {
           <Marquee items={marquee} />
         </section>
 
+        <Services content={servicesSection} items={services} />
+
         <Vitrines content={vitrinesSection} waHref={waLink(vitrinesSection.next.message)} />
 
-        <Services content={servicesSection} items={services} />
+        <WhyUs content={whyUs} />
 
         <Process content={process} />
 

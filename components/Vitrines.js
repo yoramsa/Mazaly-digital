@@ -8,7 +8,7 @@ export default function Vitrines({ content, waHref }) {
   const [openItem, setOpenItem] = useState(null);
 
   return (
-    <section id="vitrines">
+    <section className="mz-section-alt" id="vitrines">
       <div className="mz-vitrines-wrap">
         <div className="mz-section-head mz-reveal">
           <div className="mz-section-head-main">
