@@ -7,6 +7,7 @@ export default function Services({ content, items }) {
           <h2 className="mz-section-title">
             {content.titleMain} <span className="mz-title-accent">{content.titleHighlight}</span>
           </h2>
+          {content.lead && <p className="mz-section-lead">{content.lead}</p>}
         </div>
         <div className="mz-grid-services">
           {items.map((item, i) => (

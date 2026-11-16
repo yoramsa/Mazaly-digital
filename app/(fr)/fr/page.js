@@ -5,9 +5,11 @@ import Vitrines from "@/components/Vitrines";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Plans from "@/components/Plans";
-import FinalCta from "@/components/FinalCta";
-import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, process, plans, finalCta, footer } from "@/lib/content.fr";
+import Contact from "@/components/Contact";
+import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, process, plans, contact, footer } from "@/lib/content.fr";
 import { waLink, siteUrl } from "@/lib/site";
+
+export const viewport = { themeColor: "#07050d" };
 
 const karantina = Karantina({
   subsets: ["latin"],
@@ -59,6 +61,7 @@ export default function HomeFr() {
             <a className="mz-nav-link" href="#services">{nav.services}</a>
             <a className="mz-nav-link" href="#process">{nav.process}</a>
             <a className="mz-nav-link" href="#plans">{nav.plans}</a>
+            <a className="mz-nav-link" href="#contact">{nav.contact}</a>
             <a className="mz-lang-switch" href="/" hrefLang="he" lang="he" aria-label="עבור לעברית">HE</a>
             <a className="mz-ghost mz-nav-cta" href={waLink(hero.ctaPrimaryMessage)}>{nav.whatsapp}</a>
           </nav>
@@ -80,7 +83,7 @@ export default function HomeFr() {
 
         <Plans content={plans} />
 
-        <FinalCta content={finalCta} waHref={waLink(finalCta.message)} />
+        <Contact content={contact} waHref={waLink(contact.message)} lang="fr" page="/fr" />
       </main>
 
       <footer className="mz-footer">
@@ -88,6 +91,11 @@ export default function HomeFr() {
           <span>© 2026 Mazaly Digital</span>
           <span>{footer.tagline}</span>
         </div>
+        <nav className="mz-footer-legal" aria-label="Informations légales">
+          {Object.values(footer.legal).map((item) => (
+            <a className="mz-footer-link" href={item.href} key={item.href}>{item.label}</a>
+          ))}
+        </nav>
       </footer>
     </div>
   );

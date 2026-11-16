@@ -205,6 +205,7 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 
 /* --- mz: page d'accueil "vitrines" --- */
 .mz-page { background: #07050d; color: #ece6f7; font-family: var(--font-heebo), sans-serif; overflow-x: hidden; position: relative; }
+body:has(> .mz-page) { background: #07050d; }
 
 .mz-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(7, 5, 13, 0.62); border-bottom: 1px solid rgba(201, 168, 255, 0.12); }
 .mz-header-in { max-width: 1320px; margin-inline: auto; padding: 18px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
@@ -321,12 +322,42 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 .mz-price-value-lg { color: #c9a8ff; font-size: 22px; }
 .mz-plan-feature { font-size: 15px; color: #ece6f7; display: flex; gap: 10px; align-items: baseline; }
 .mz-plan-feature-dot { color: #a855f7; }
+.mz-plan-featured { position: relative; border-color: rgba(201, 168, 255, 0.55); background: radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.14), rgba(255, 255, 255, 0.02) 60%); }
+.mz-plan-badge { align-self: flex-start; padding: 6px 14px; border-radius: 999px; background: #a855f7; color: #ffffff; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+.mz-plans-note { margin: 0; text-align: center; font-size: 14px; color: #8f84a6; }
+.mz-plans-note a { color: #c9a8ff; text-decoration: underline; text-underline-offset: 3px; }
+.mz-plans-note a:hover { color: #ffffff; }
 
 .mz-final { position: relative; overflow: hidden; isolation: isolate; }
 .mz-final-blob { position: absolute; z-index: -1; top: 10%; left: 30%; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(168, 85, 247, 0.45), rgba(168, 85, 247, 0) 65%); filter: blur(40px); }
 .mz-final-inner { position: relative; z-index: 1; max-width: 1320px; margin-inline: auto; padding: 180px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 36px; }
 .mz-final-title { margin: 0; font-family: var(--font-karantina), sans-serif; font-weight: 700; font-size: clamp(54px, 13vw, 220px); line-height: 0.82; background-image: linear-gradient(100deg, #ffffff 20%, #d8b4fe 35%, #ffffff 45%, #a855f7 60%, #ffffff 80%); background-size: 300% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: mzShine 7s linear infinite; }
 .mz-final-lead { margin: 0; max-width: 560px; font-size: 19px; line-height: 1.7; color: #b8aecb; font-weight: 300; }
+
+.mz-contact-form-wrap { position: relative; z-index: 1; max-width: 760px; margin: 0 auto 160px; padding-inline: 28px; }
+.mz-contact-form { display: flex; flex-direction: column; gap: 22px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(201, 168, 255, 0.18); border-radius: 28px; padding: clamp(24px, 4vw, 44px); }
+.mz-contact-form-title { margin: 0; font-family: var(--font-karantina), sans-serif; font-weight: 700; font-size: 32px; line-height: 1; color: #ffffff; }
+.mz-form-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 18px; }
+.mz-form-field { min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.mz-form-label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #b8aecb; }
+.mz-form-input { width: 100%; font: 400 15px var(--font-heebo), sans-serif; color: #ece6f7; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(201, 168, 255, 0.22); border-radius: 14px; padding: 13px 16px; transition: border-color 0.2s, box-shadow 0.2s; }
+.mz-form-input::placeholder { color: #6f6585; }
+.mz-form-input:focus { outline: none; border-color: #a855f7; box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.22); }
+.mz-form-select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #c9a8ff 50%), linear-gradient(135deg, #c9a8ff 50%, transparent 50%); background-position: calc(100% - 22px) center, calc(100% - 17px) center; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+.mz-form-select:dir(rtl) { background-position: 22px center, 17px center; }
+.mz-form-select option { background: #0f0a1c; color: #ece6f7; }
+.mz-form-textarea { resize: vertical; min-height: 120px; }
+.mz-form-error { margin: 0; font-size: 13px; color: #f0abfc; }
+.mz-hp-field { position: absolute; width: 1px; height: 1px; opacity: 0; overflow: hidden; pointer-events: none; left: -9999px; }
+.mz-form-submit { border: none; cursor: pointer; align-self: flex-start; }
+.mz-form-submit:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+.mz-form-done { display: flex; align-items: center; gap: 16px; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(201, 168, 255, 0.18); border-radius: 28px; padding: clamp(24px, 4vw, 36px); }
+.mz-form-done-icon { flex: none; width: 44px; height: 44px; border-radius: 50%; background: #22d3ee; color: #07050d; display: grid; place-items: center; font-size: 1.3rem; font-weight: 700; }
+.mz-form-done p { margin: 0; font-size: 1.05rem; color: #ece6f7; }
+
+.mz-footer-legal { max-width: 1320px; margin: 18px auto 0; display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; }
+.mz-footer-link { color: #8f84a6; font-size: 13px; text-decoration: none; transition: color 0.2s ease; }
+.mz-footer-link:hover { color: #ece6f7; }
 
 .mz-modal-overlay { position: fixed; inset: 0; z-index: 80; display: flex; align-items: center; justify-content: center; padding: 24px; background: rgba(7, 5, 13, 0.82); backdrop-filter: blur(6px); animation: mzModalFade 0.25s ease both; }
 .mz-modal { position: relative; width: min(760px, 100%); max-height: calc(100vh - 48px); overflow-y: auto; border-radius: 28px; border: 1px solid rgba(201, 168, 255, 0.25); background: #0f0a1c; display: flex; flex-direction: column; animation: mzModalRise 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
@@ -384,6 +415,8 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 
 @media (max-width: 640px) {
   .mz-nav-link { display: none; }
+  .mz-form-row { grid-template-columns: minmax(0, 1fr); }
+  .mz-contact-form-wrap { padding-inline: 20px; margin-bottom: 100px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .mz-blob-a, .mz-blob-b, .mz-glitch, .mz-cta, .mz-ring, .mz-rise-1, .mz-rise-2, .mz-rise-3, .mz-rise-4, .mz-reveal, .mz-hero-line-2, .mz-final-title { animation: none; }

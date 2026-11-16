@@ -11,6 +11,10 @@ function rateLimited(ip) {
   return timestamps.length > MAX_PER_WINDOW;
 }
 
+function clean(value, maxLength = 2000) {
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
 export async function POST(req) {
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
   if (rateLimited(ip)) {
@@ -24,11 +28,27 @@ export async function POST(req) {
     return Response.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
 
-  const { name, email, lang, page, website } = data || {};
+  if (!data || typeof data !== "object") {
+    return Response.json({ ok: false, error: "invalid_body" }, { status: 400 });
+  }
+
+  const website = clean(data.website, 200);
   if (website) {
     return Response.json({ ok: true });
   }
-  if (!name || !email) {
+
+  const name = clean(data.name, 200);
+  const company = clean(data.company, 200);
+  const email = clean(data.email, 200);
+  const phone = clean(data.phone, 60);
+  const projectType = clean(data.projectType, 200);
+  const budget = clean(data.budget, 200);
+  const message = clean(data.message, 4000);
+  const lang = clean(data.lang, 10);
+  const page = clean(data.page, 200);
+
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!name || !email || !EMAIL_RE.test(email)) {
     return Response.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 
@@ -37,11 +57,18 @@ export async function POST(req) {
   const from = process.env.LEAD_FROM_EMAIL || "Mazaly Digital <onboarding@resend.dev>";
 
   const summary = [
-    `שם / Nom: ${name}`,
-    `אימייל / E-mail: ${email}`,
-    `שפה / Langue: ${lang || "-"}`,
-    `עמוד / Page: ${page || "-"}`,
-  ].join("\n");
+    `Nom: ${name}`,
+    company && `Entreprise: ${company}`,
+    `E-mail: ${email}`,
+    phone && `Téléphone: ${phone}`,
+    projectType && `Type de projet: ${projectType}`,
+    budget && `Budget indicatif: ${budget}`,
+    message && `Besoin: ${message}`,
+    `Langue: ${lang || "-"}`,
+    `Page: ${page || "-"}`,
+  ]
+    .filter(Boolean)
+    .join("\n");
 
   if (apiKey && to) {
     try {
@@ -54,7 +81,8 @@ export async function POST(req) {
         body: JSON.stringify({
           from,
           to,
-          subject: `ליד חדש מהאתר Mazaly Digital: ${name}`,
+          reply_to: email,
+          subject: `Nouvelle demande Mazaly Digital : ${name}${company ? ` (${company})` : ""}`,
           text: summary,
         }),
       });
