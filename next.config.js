@@ -22,13 +22,19 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    agentUpgrade: "security",
+  },
+  images: {
+    minimumCacheTTL: 31536000,
+  },
   async headers() {
     return [{ source: "/:path*", headers: securityHeaders }];
   },
   async redirects() {
     return [
-      { source: "/plus", destination: "/#forfaits", permanent: true },
-      { source: "/fr/plus", destination: "/fr#forfaits", permanent: true },
+      { source: "/plus", destination: "/#plans", permanent: true },
+      { source: "/fr/plus", destination: "/fr#plans", permanent: true },
     ];
   },
 };
