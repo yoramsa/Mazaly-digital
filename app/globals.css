@@ -43,7 +43,7 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 .top.stuck { border-bottom-color: var(--line); }
 .top-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 10px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; line-height: 1; text-decoration: none; direction: ltr; unicode-bidi: isolate; }
-.brand-mark { width: 30px; height: 30px; flex: none; }
+.brand-mark { width: 30px; height: 30px; flex: none; border-radius: 9px; object-fit: cover; }
 .brand-sub { color: var(--accent); }
 .nav { display: flex; align-items: center; gap: 26px; }
 .nav-link { display: inline-flex; align-items: center; min-height: 24px; font-size: 0.95rem; color: var(--dim); text-decoration: none; transition: color 0.15s; }
@@ -224,7 +224,8 @@ body:has(> .mz-page) { background: #07050d; }
 .mz-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(7, 5, 13, 0.62); border-bottom: 1px solid rgba(201, 168, 255, 0.12); }
 .mz-header-in { max-width: 1320px; margin-inline: auto; padding: 18px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
 .mz-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; }
-.mz-brand-badge { width: 38px; height: 38px; border-radius: 12px; background: #a855f7; display: flex; align-items: center; justify-content: center; font-family: var(--font-karantina), sans-serif; font-weight: 700; font-size: 30px; color: #07050d; line-height: 1; }
+.mz-brand-badge { width: 38px; height: 38px; border-radius: 12px; background: #05001a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none; }
+.mz-brand-badge img { width: 100%; height: 100%; object-fit: cover; }
 .mz-brand-name { font-weight: 900; font-size: 19px; letter-spacing: 0.02em; }
 .mz-brand-sub { color: #c9a8ff; font-weight: 300; }
 .mz-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; }

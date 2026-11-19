@@ -26,7 +26,13 @@ export const metadata = {
     description,
     images: ["/og-image.png"],
   },
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export const viewport = {
@@ -45,7 +51,7 @@ const jsonLd = {
       slogan: "On ne fait pas des sites. On fait des vitrines.",
       telephone: "+972-54-567-0414",
       image: `${siteUrl}/og-image.png`,
-      logo: `${siteUrl}/favicon.svg`,
+      logo: `${siteUrl}/icon-512.png`,
       priceRange: "999+ ILS",
       areaServed: { "@type": "Country", name: "Israël" },
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },

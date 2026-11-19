@@ -1,4 +1,5 @@
 import { Karantina, Heebo } from "next/font/google";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import Vitrines from "@/components/Vitrines";
@@ -56,7 +57,9 @@ export default function Home() {
       <header className="mz-header">
         <div className="mz-header-in">
           <a className="mz-brand" href="#top" aria-label="Mazaly Digital">
-            <span className="mz-brand-badge">M</span>
+            <span className="mz-brand-badge">
+              <Image src="/logo-mark.png" alt="" width={40} height={40} />
+            </span>
             <span className="mz-brand-name">{brand.name}<span className="mz-brand-sub"> {brand.sub}</span></span>
           </a>
           <nav className="mz-nav" aria-label="ניווט ראשי">
