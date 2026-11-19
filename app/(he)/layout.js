@@ -1,9 +1,9 @@
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
 
-const title = "מזלי דיגיטל — אנחנו בונים ויטרינות דיגיטליות למותגים";
+const title = "מזלי דיגיטל — השאפתנות שלכם ראויה ליותר מסתם אתר אינטרנט";
 const description =
-  "מזלי דיגיטל בונה למותגים ויטרינות דיגיטליות שלא נראו בשום מקום: אתרים עם אפקטים, אפליקציות, CRM, סוכני AI בוואטסאפ ואוטומציה.";
+  "מזלי דיגיטל מלווה עסקים בטרנספורמציה הדיגיטלית שלהם: אתרים בהתאמה אישית, אפליקציות, בינה מלאכותית ואוטומציה, מתל אביב.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,7 +18,7 @@ export const metadata = {
     title,
     description,
     url: siteUrl,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "מזלי דיגיטל — ויטרינות דיגיטליות למותגים" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "מזלי דיגיטל — סטודיו דיגיטל יצירתי" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,7 +48,7 @@ const jsonLd = {
       name: "Mazaly Digital — מזלי דיגיטל",
       url: siteUrl,
       description,
-      slogan: "אנחנו לא בונים אתרים. אנחנו בונים ויטרינות.",
+      slogan: "השאפתנות שלכם ראויה ליותר מסתם אתר אינטרנט.",
       telephone: "+972-54-567-0414",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/icon-512.png`,
@@ -57,7 +57,7 @@ const jsonLd = {
       address: { "@type": "PostalAddress", addressLocality: "תל אביב", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "עסקים קטנים ובינוניים מכל תחום" },
-      knowsAbout: ["ויטרינות דיגיטליות", "בניית אתרים", "אפליקציות", "סוכני בינה מלאכותית", "CRM ואוטומציה"],
+      knowsAbout: ["אתרים וחנויות אונליין", "אפליקציות לאינטרנט ולנייד", "סוכני AI ובוואטסאפ", "CRM ואוטומציה", "נראות במנועי חיפוש ובינה מלאכותית", "תוכנה בהתאמה אישית"],
     },
   ],
 };

@@ -1,9 +1,9 @@
 import "../globals.css";
 import { siteUrl } from "@/lib/site";
 
-const title = "Mazaly Digital — On ne fait pas des sites, on fait des vitrines";
+const title = "Mazaly Digital — Votre ambition mérite plus qu'un simple site web";
 const description =
-  "Mazaly Digital crée pour les marques des vitrines digitales jamais vues ailleurs : sites à effets, applications, CRM, agents IA WhatsApp et automatisation, à Tel Aviv.";
+  "Mazaly Digital accompagne les entreprises dans leur transformation digitale : sites sur mesure, applications, intelligence artificielle et automatisation, à Tel Aviv.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,7 +18,7 @@ export const metadata = {
     title,
     description,
     url: `${siteUrl}/fr`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mazaly Digital — Vitrines digitales pour les marques" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Mazaly Digital — Studio digital créatif" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -48,7 +48,7 @@ const jsonLd = {
       name: "Mazaly Digital",
       url: `${siteUrl}/fr`,
       description,
-      slogan: "On ne fait pas des sites. On fait des vitrines.",
+      slogan: "Votre ambition mérite plus qu'un simple site web.",
       telephone: "+972-54-567-0414",
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/icon-512.png`,
@@ -57,7 +57,7 @@ const jsonLd = {
       address: { "@type": "PostalAddress", addressLocality: "Tel Aviv", addressCountry: "IL" },
       knowsLanguage: ["he", "fr"],
       audience: { "@type": "Audience", audienceType: "Petites et moyennes entreprises, tous secteurs" },
-      knowsAbout: ["Vitrines digitales", "Création de sites", "Applications", "Agents d'intelligence artificielle", "CRM et automatisation"],
+      knowsAbout: ["Création de sites web et e-commerce", "Applications web et mobiles", "Agents IA et WhatsApp", "CRM et automatisation", "Référencement et visibilité IA", "Logiciels sur mesure"],
     },
   ],
 };
