@@ -15,7 +15,7 @@ export default function AbonnementPage() {
       <p className="legal-p">Chaque projet comprend des frais d'installation ponctuels, suivis d'un abonnement mensuel. Il n'y a pas de prix unique : le montant final est fixé dans un devis personnalisé, hors TVA ({vatRatePercent} %), à partir de {startingPrice.toLocaleString("fr-FR")} {currency} d'installation.</p>
 
       <h2 className="legal-h2">Durée d'engagement</h2>
-      <p className="legal-p">L'abonnement mensuel implique un engagement de 12 mois à partir du début du service. Une résiliation anticipée entraîne des frais de sortie de {"{{frais_sortie_anticipee}}"}.</p>
+      <p className="legal-p">L'abonnement mensuel implique un engagement de 12 mois à partir du début du service. Une résiliation anticipée entraîne des frais de sortie équivalents à 3 mois d'abonnement.</p>
 
       <h2 className="legal-h2">Délais de livraison</h2>
       <p className="legal-p">Le délai estimé est précisé dans le devis de chaque projet, et démarre après un échange de cadrage et la validation écrite du devis. Le délai réel dépend de la remise à temps des contenus et validations par le client.</p>

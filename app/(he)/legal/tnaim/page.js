@@ -11,7 +11,7 @@ export default function TnaimPage() {
   return (
     <LegalLayout lang="he" homeHref="/" path="/legal/tnaim" title="תנאי שימוש">
       <h2 className="legal-h2">מי אנחנו</h2>
-      <p className="legal-p">Mazaly Digital היא סוכנות דיגיטל הפועלת מתל אביב, ישראל. מספר עוסק/ח.פ: {"{{מספר_עוסק}}"}. הגלישה והשימוש באתר ובשירותים מהווים הסכמה לתנאים אלה.</p>
+      <p className="legal-p">Mazaly Digital היא סוכנות דיגיטל הפועלת מתל אביב, ישראל. הגלישה והשימוש באתר ובשירותים מהווים הסכמה לתנאים אלה.</p>
 
       <h2 className="legal-h2">השימוש באתר</h2>
       <p className="legal-p">האתר נועד להציג את שירותי הסוכנות ולאפשר יצירת קשר לקבלת הצעת מחיר. אין להשתמש באתר לכל מטרה בלתי חוקית, לפגוע בפעולתו, או לנסות לגשת למידע שאינו מיועד לפרסום.</p>
