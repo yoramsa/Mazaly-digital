@@ -1,23 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import ParfumEffect from "@/components/vitrine-effects/ParfumEffect";
-import SneakersEffect from "@/components/vitrine-effects/SneakersEffect";
-import CafeEffect from "@/components/vitrine-effects/CafeEffect";
-import BijouxEffect from "@/components/vitrine-effects/BijouxEffect";
-import RestaurantEffect from "@/components/vitrine-effects/RestaurantEffect";
-import ModeEffect from "@/components/vitrine-effects/ModeEffect";
-import JudaicaEffect from "@/components/vitrine-effects/JudaicaEffect";
-
-const effectById = {
-  parfum: ParfumEffect,
-  sneakers: SneakersEffect,
-  cafe: CafeEffect,
-  bijoux: BijouxEffect,
-  restaurant: RestaurantEffect,
-  mode: ModeEffect,
-  judaica: JudaicaEffect,
-};
+import { effectById } from "@/components/vitrine-effects";
 
 export default function VitrineModal({ item, closeLabel, onClose }) {
   const closeRef = useRef(null);

@@ -293,7 +293,16 @@ body:has(> .mz-page) { background: #07050d; }
 .mz-vitrine-img:hover { transform: scale(1.08); filter: saturate(1.2) brightness(1.05); }
 .mz-vitrine-fade { position: absolute; inset: auto 0 0 0; height: 40%; background: linear-gradient(0deg, #0f0a1c, rgba(15, 10, 28, 0)); pointer-events: none; }
 .mz-vitrine-badge { position: absolute; top: 18px; inset-inline-start: 18px; padding: 7px 14px; border-radius: 999px; background: rgba(7, 5, 13, 0.7); backdrop-filter: blur(8px); font-size: 12px; letter-spacing: 0.14em; color: #c9a8ff; }
-.mz-vitrine-media::before { content: "▶"; position: absolute; top: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: #a855f7; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 16px; box-shadow: 0 0 30px rgba(168, 85, 247, 0.65); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
+.mz-vitrine-media .mz-modal-img,
+.mz-vitrine-media .mz-fx-video { filter: saturate(0.85) brightness(0.9); transition: filter 1s ease, transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.mz-vitrine-media .mz-fx-bijoux,
+.mz-vitrine-media .mz-fx-mode { transition: filter 1s ease; }
+.mz-vitrine-media:hover .mz-modal-img,
+.mz-vitrine-media:hover .mz-fx-video { transform: scale(1.06); filter: saturate(1.15) brightness(1.02); }
+.mz-vitrine-media:hover .mz-fx-bijoux,
+.mz-vitrine-media:hover .mz-fx-mode { filter: saturate(1.15) brightness(1.02); }
+
+.mz-vitrine-media::before { content: "⤢"; position: absolute; top: 50%; inset-inline-start: 50%; transform: translate(-50%, -50%); width: 56px; height: 56px; border-radius: 50%; background: #a855f7; color: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 20px; box-shadow: 0 0 30px rgba(168, 85, 247, 0.65); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; }
 .mz-vitrine-media:hover::before { opacity: 1; }
 .mz-vitrine-media::after { content: attr(data-cta); position: absolute; top: calc(50% + 46px); inset-inline-start: 50%; transform: translateX(-50%); font-size: 12px; letter-spacing: 0.12em; color: #ece6f7; text-shadow: 0 2px 10px rgba(7, 5, 13, 0.9); opacity: 0; transition: opacity 0.3s ease; pointer-events: none; white-space: nowrap; }
 .mz-vitrine-media:hover::after { opacity: 1; }
