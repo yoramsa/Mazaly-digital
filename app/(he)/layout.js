@@ -1,28 +1,30 @@
 import "../globals.css";
-import { siteUrl } from "@/lib/site";
+import { siteUrl, contactEmail, googleSiteVerification } from "@/lib/site";
 
-const title = "מזלי דיגיטל — השאפתנות שלכם ראויה ליותר מסתם אתר אינטרנט";
+const title = "בניית אתרים ופתרונות AI לעסקים | מזלי דיגיטל";
+const shareTitle = "מזלי דיגיטל — השאפתנות שלכם ראויה ליותר מסתם אתר אינטרנט";
 const description =
-  "מזלי דיגיטל מלווה עסקים בטרנספורמציה הדיגיטלית שלהם: אתרים בהתאמה אישית, אפליקציות, בינה מלאכותית ואוטומציה, מתל אביב.";
+  "מזלי דיגיטל – בניית אתרים בהתאמה אישית, אפליקציות, סוכני AI בוואטסאפ ואוטומציה לעסקים בישראל, מתל אביב, בעברית ובצרפתית.";
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  ...(googleSiteVerification && { verification: { google: googleSiteVerification } }),
   alternates: { canonical: "/", languages: { he: "/", fr: "/fr", "x-default": "/" } },
   robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   openGraph: {
     type: "website",
     locale: "he_IL",
     siteName: "Mazaly Digital",
-    title,
+    title: shareTitle,
     description,
     url: siteUrl,
     images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "מזלי דיגיטל — סטודיו דיגיטל יצירתי" }],
   },
   twitter: {
     card: "summary_large_image",
-    title,
+    title: shareTitle,
     description,
     images: ["/og-image.png"],
   },
@@ -43,13 +45,25 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Mazaly Digital",
+      alternateName: ["מזלי דיגיטל", "Mazaly"],
+      inLanguage: ["he", "fr"],
+      publisher: { "@id": `${siteUrl}/#organization` },
+    },
+    {
       "@type": ["ProfessionalService", "LocalBusiness"],
       "@id": `${siteUrl}/#organization`,
       name: "Mazaly Digital — מזלי דיגיטל",
+      alternateName: "מזלי דיגיטל",
       url: siteUrl,
       description,
       slogan: "השאפתנות שלכם ראויה ליותר מסתם אתר אינטרנט.",
       telephone: "+972-54-567-0414",
+      ...(contactEmail && { email: contactEmail }),
+      contactPoint: { "@type": "ContactPoint", telephone: "+972-54-567-0414", contactType: "customer service", availableLanguage: ["Hebrew", "French"] },
       image: `${siteUrl}/og-image.png`,
       logo: `${siteUrl}/icon-512.png`,
       priceRange: "999+ ILS",
