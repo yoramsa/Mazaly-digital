@@ -218,19 +218,61 @@ h1, h2, h3, p, ul, ol, dl, dd { margin: 0; }
 }
 
 /* --- mz: page d'accueil "vitrines" --- */
-.mz-page { background: #07050d; color: #ece6f7; font-family: var(--font-heebo), sans-serif; overflow-x: hidden; position: relative; }
+.mz-page { background: #07050d; color: #ece6f7; font-family: var(--font-heebo), sans-serif; overflow-x: clip; position: relative; }
 body:has(> .mz-page) { background: #07050d; }
 
-.mz-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(7, 5, 13, 0.62); border-bottom: 1px solid rgba(201, 168, 255, 0.12); }
-.mz-header-in { max-width: 1320px; margin-inline: auto; padding: 18px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; }
+/* blur lives on ::before: backdrop-filter on .mz-header itself would trap the fixed mobile dock inside it */
+.mz-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(201, 168, 255, 0.12); }
+.mz-header::before { content: ""; position: absolute; inset: 0; z-index: -1; backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); background: rgba(7, 5, 13, 0.62); }
+.mz-header-in { max-width: 1320px; margin-inline: auto; padding: 16px 28px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.mz-header-actions { display: flex; align-items: center; gap: 12px; flex: none; }
+.mz-page section[id] { scroll-margin-top: 82px; }
+
+.mz-dock { position: relative; }
+.mz-dock-list { position: relative; display: flex; align-items: center; gap: 2px; margin: 0; padding: 5px; list-style: none; border-radius: 999px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(201, 168, 255, 0.16); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05); }
+.mz-dock-list > li { display: flex; }
+.mz-dock-link { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 7px; padding: 9px 14px; border-radius: 999px; color: #b8aecb; text-decoration: none; font-size: 14px; line-height: 1; white-space: nowrap; transition: color 0.25s ease; }
+.mz-dock-link:hover, .mz-dock-link.is-active { color: #ffffff; }
+.mz-dock-link:focus-visible { outline-offset: -2px; }
+.mz-dock-num { font-family: var(--font-karantina), sans-serif; font-size: 16px; letter-spacing: 0.04em; color: #8f84a6; transition: color 0.25s ease; }
+.mz-dock-link:hover .mz-dock-num, .mz-dock-link.is-active .mz-dock-num { color: #c9a8ff; }
+.mz-dock-label { display: inline-flex; }
+.mz-dock-label-short { display: none; }
+.mz-dock-indicator { position: absolute; top: 5px; bottom: 5px; left: 0; width: 0; border-radius: 999px; background: linear-gradient(120deg, rgba(168, 85, 247, 0.38), rgba(34, 211, 238, 0.22)); border: 1px solid rgba(201, 168, 255, 0.45); box-shadow: 0 0 24px -6px rgba(168, 85, 247, 0.75); opacity: 0; pointer-events: none; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), width 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease; }
+.mz-dock-progress { position: absolute; left: 20px; right: 20px; bottom: -1px; height: 2px; border-radius: 2px; background: linear-gradient(90deg, #a855f7, #22d3ee); transform: scaleX(var(--nav-progress, 0)); transform-origin: left center; opacity: 0.85; pointer-events: none; }
+.mz-dock-progress:dir(rtl) { transform-origin: right center; background: linear-gradient(270deg, #a855f7, #22d3ee); }
+
+.mz-brand-name { white-space: nowrap; }
+@media (max-width: 1279px) {
+  .mz-header-actions .mz-nav-cta { display: none; }
+}
+@media (max-width: 1023px) {
+  .mz-page { padding-bottom: 96px; }
+  .mz-page section[id] { scroll-margin-top: 71px; }
+  .mz-dock { position: fixed; z-index: 45; bottom: max(20px, env(safe-area-inset-bottom, 0px)); inset-inline-start: 16px; inset-inline-end: 86px; display: flex; transform: translateY(calc(100% + 40px)); opacity: 0; pointer-events: none; transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease; }
+  .mz-dock.is-docked { transform: none; opacity: 1; pointer-events: auto; }
+  .mz-dock.is-docked.is-hidden { transform: translateY(calc(100% + 40px)); opacity: 0; pointer-events: none; }
+  .mz-dock-list { height: 54px; max-width: 100%; overflow: hidden; background: rgba(12, 8, 23, 0.86); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-color: rgba(201, 168, 255, 0.24); box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.65); }
+  .mz-dock-link { height: 44px; padding: 0 10px; gap: 0; }
+  .mz-dock-num { font-size: 18px; }
+  .mz-dock-label { max-width: 0; overflow: hidden; opacity: 0; font-size: 13px; font-weight: 500; transition: max-width 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease, margin 0.35s ease; }
+  .mz-dock-label-full { display: none; }
+  .mz-dock-label-short { display: inline; }
+  .mz-dock-link.is-active .mz-dock-label { max-width: 96px; opacity: 1; margin-inline-start: 7px; }
+  .mz-dock-progress { left: 24px; right: 24px; bottom: 3px; }
+}
+@media (max-width: 379px) {
+  .mz-dock-link { padding: 0 8px; }
+  .mz-dock-link.is-active .mz-dock-label { max-width: 0; opacity: 0; margin-inline-start: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mz-dock, .mz-dock-indicator, .mz-dock-label, .mz-dock-link, .mz-dock-num { transition: none; }
+}
 .mz-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; }
 .mz-brand-badge { width: 38px; height: 38px; border-radius: 12px; background: #05001a; display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none; }
 .mz-brand-badge img { width: 100%; height: 100%; object-fit: cover; }
 .mz-brand-name { font-weight: 900; font-size: 19px; letter-spacing: 0.02em; }
 .mz-brand-sub { color: #c9a8ff; font-weight: 300; }
-.mz-nav { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px; }
-.mz-nav-link { color: #b8aecb; text-decoration: none; transition: color 0.2s ease; }
-.mz-nav-link:hover { color: #ffffff; }
 
 .mz-cta { display: inline-flex; padding: 20px 36px; border-radius: 999px; background: #a855f7; color: #ffffff; text-decoration: none; font-weight: 700; font-size: 18px; transition: transform 0.25s ease, background 0.25s ease; }
 .mz-cta:hover { transform: translateY(-3px) scale(1.03); background: #b67cff; color: #07050d; }
@@ -445,7 +487,6 @@ body:has(> .mz-page) { background: #07050d; }
 @keyframes mzFxNeon { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
 
 @media (max-width: 640px) {
-  .mz-nav-link { display: none; }
   .mz-form-row { grid-template-columns: minmax(0, 1fr); }
   .mz-contact-form-wrap { padding-inline: 20px; margin-bottom: 100px; }
   .mz-hero { min-height: auto; }

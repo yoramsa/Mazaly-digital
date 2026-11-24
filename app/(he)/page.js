@@ -9,7 +9,8 @@ import Process from "@/components/Process";
 import Plans from "@/components/Plans";
 import Contact from "@/components/Contact";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { nav, brand, hero, marquee, vitrinesSection, services, servicesSection, whyUs, process, plans, contact, footer } from "@/lib/content.he";
+import SiteNav from "@/components/SiteNav";
+import { nav, navItems, brand, hero, marquee, vitrinesSection, services, servicesSection, whyUs, process, plans, contact, footer } from "@/lib/content.he";
 import { waLink, siteUrl } from "@/lib/site";
 
 export const viewport = { themeColor: "#07050d" };
@@ -62,15 +63,11 @@ export default function Home() {
             </span>
             <span className="mz-brand-name">{brand.name}<span className="mz-brand-sub"> {brand.sub}</span></span>
           </a>
-          <nav className="mz-nav" aria-label="ניווט ראשי">
-            <a className="mz-nav-link" href="#services">{nav.services}</a>
-            <a className="mz-nav-link" href="#vitrines">{nav.vitrines}</a>
-            <a className="mz-nav-link" href="#process">{nav.process}</a>
-            <a className="mz-nav-link" href="#plans">{nav.plans}</a>
-            <a className="mz-nav-link" href="#contact">{nav.contact}</a>
+          <SiteNav items={navItems} label={nav.label} />
+          <div className="mz-header-actions">
             <a className="mz-lang-switch" href="/fr" hrefLang="fr" lang="fr" aria-label="Passer en français">FR</a>
             <a className="mz-ghost mz-nav-cta" href={waLink(hero.ctaPrimaryMessage)}>{nav.whatsapp}</a>
-          </nav>
+          </div>
         </div>
       </header>
 
