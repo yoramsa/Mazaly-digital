@@ -11,7 +11,7 @@ export default function MentionsPage() {
   return (
     <LegalLayout lang="fr" homeHref="/fr" path="/fr/legal/mentions" title="Mentions légales">
       <h2 className="legal-h2">Qui nous sommes</h2>
-      <p className="legal-p">Mazaly Digital est une agence digitale basée à Tel Aviv, Israël. Numéro d'entreprise : {"{{numero_entreprise}}"}. La navigation et l'utilisation de ce site valent acceptation des présentes conditions.</p>
+      <p className="legal-p">Mazaly Digital est une agence digitale basée à Tel Aviv, Israël. La navigation et l'utilisation de ce site valent acceptation des présentes conditions.</p>
 
       <h2 className="legal-h2">Utilisation du site</h2>
       <p className="legal-p">Ce site présente les services de l'agence et permet de demander un devis. Il est interdit de l'utiliser à des fins illégales, de nuire à son fonctionnement, ou de tenter d'accéder à des informations non destinées à la publication.</p>

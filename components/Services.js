@@ -1,6 +1,6 @@
 export default function Services({ content, items }) {
   return (
-    <section className="mz-section-alt" id="services">
+    <section id="services">
       <div className="mz-services-wrap">
         <div className="mz-section-head-simple mz-reveal">
           <span className="mz-eyebrow-label">{content.eyebrow}</span>

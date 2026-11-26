@@ -1,6 +1,6 @@
 export default function Plans({ content }) {
   return (
-    <section className="mz-section-alt" id="plans">
+    <section id="plans">
       <div className="mz-plans-wrap">
         <div className="mz-plans-head mz-reveal">
           <span className="mz-eyebrow-label">{content.eyebrow}</span>
