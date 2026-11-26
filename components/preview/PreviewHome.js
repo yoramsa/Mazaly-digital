@@ -3,11 +3,10 @@
 import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
-import { WhatsAppIcon } from "@/components/Icons";
 import PreviewShell from "@/components/preview/PreviewShell";
 import PreviewCreations from "@/components/preview/PreviewCreations";
 import { CarouselNav, useCarousel } from "@/components/preview/Carousel";
-import { ArrowRight, ArrowUpRight, Play, Monitor, Layers, Gamepad, Bulb, Bars } from "@/components/preview/PreviewIcons";
+import { ArrowRight, ArrowUpRight, Play, WhatsApp, Monitor, Layers, Gamepad, Bulb, Bars } from "@/components/preview/PreviewIcons";
 import { homePath, previewContent, shellContent } from "@/lib/content.preview";
 import { track } from "@/lib/analytics";
 import { waLink } from "@/lib/site";
@@ -58,6 +57,16 @@ export default function PreviewHome({ lang }) {
             </div>
           </div>
         </section>
+
+        <div className="pr-ticker" aria-hidden="true">
+          <div className="pr-ticker-track">
+            {[...t.ticker, ...t.ticker].map((word, i) => (
+              <span className="pr-ticker-item" key={i}>
+                {word} <i>✦</i>
+              </span>
+            ))}
+          </div>
+        </div>
 
         <section className="pr-universes" id="univers">
           <div className="pr-wrap">
@@ -157,7 +166,7 @@ export default function PreviewHome({ lang }) {
                   aria-label={t.a11y.whatsapp}
                   onClick={() => track("whatsapp_click", { lang, source: "contact" })}
                 >
-                  <WhatsAppIcon />
+                  <WhatsApp />
                 </a>
               </div>
             </div>

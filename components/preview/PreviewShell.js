@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import PageEffects from "@/components/PageEffects";
+import Image from "next/image";
+import PreviewEffects from "@/components/preview/PreviewEffects";
 import WhatsappFloat from "@/components/WhatsappFloat";
-import { RibbonLogo, ArrowUpRight, Chevron, Burger, Close } from "@/components/preview/PreviewIcons";
+import { ArrowUpRight, Chevron, Burger, Close } from "@/components/preview/PreviewIcons";
 import { waLink } from "@/lib/site";
 
 const SECTION_IDS = ["accueil", "univers", "creations", "approche", "contact"];
@@ -42,12 +43,41 @@ function useHideFloatingButton() {
   return hidden;
 }
 
+// Le bouton s'efface quand on descend dans la page (lecture) et réapparaît dès qu'on remonte
+// ou qu'on est en haut de page : il ne reste jamais posé sur le contenu que l'on lit.
+function useScrollAway() {
+  const [away, setAway] = useState(false);
+  useEffect(() => {
+    let last = window.scrollY;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      const y = window.scrollY;
+      const dy = y - last;
+      if (Math.abs(dy) < 8) return;
+      setAway(y > 360 && dy > 0);
+      last = y;
+    };
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  return away;
+}
+
 export default function PreviewShell({ lang, shell, homeHref, switchHref, variant = "home", children }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const langRef = useRef(null);
   const active = useActiveSection(variant === "home");
-  const waHidden = useHideFloatingButton();
+  const inQuietZone = useHideFloatingButton();
+  const scrolledAway = useScrollAway();
+  const waHidden = inQuietZone || scrolledAway;
   const sectionHref = (id) => (variant === "home" ? `#${id}` : `${homeHref}#${id}`);
 
   useEffect(() => {
@@ -75,7 +105,7 @@ export default function PreviewShell({ lang, shell, homeHref, switchHref, varian
 
   return (
     <div className={`pr-root pr-${variant}${waHidden ? " pr-wa-hidden" : ""}`}>
-      <PageEffects />
+      <PreviewEffects />
       <WhatsappFloat lang={lang} message={shell.whatsappMessage} />
 
       <div className="pr-bar" role="note">
@@ -86,7 +116,7 @@ export default function PreviewShell({ lang, shell, homeHref, switchHref, varian
       <header className="pr-header">
         <div className="pr-wrap pr-header-in">
           <a className="pr-brand" href={sectionHref("accueil")} aria-label={shell.a11y.home}>
-            <RibbonLogo className="pr-brand-mark" />
+            <Image className="pr-brand-mark" src="/logo-mark.png" alt="" width={44} height={44} priority />
             <span className="pr-brand-name" dir="ltr">MAZALY<br />DIGITAL</span>
           </a>
 

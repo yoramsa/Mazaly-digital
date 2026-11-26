@@ -1,23 +1,5 @@
 const stroke = { fill: "none", stroke: "currentColor", strokeLinecap: "round", strokeLinejoin: "round" };
 
-export function RibbonLogo({ className = "" }) {
-  return (
-    <svg className={className} viewBox="0 0 64 44" aria-hidden="true">
-      <defs>
-        <linearGradient id="pr-ribbon-g" x1="0" y1="0" x2="64" y2="44" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#5b12c9" />
-          <stop offset="0.45" stopColor="#a21caf" />
-          <stop offset="0.7" stopColor="#7c3aed" />
-          <stop offset="1" stopColor="#67b7f7" />
-        </linearGradient>
-      </defs>
-      <path d="M6 38C10 20 13 6 19 6s8 25 13 25 7-25 13-25 9 14 13 32" fill="none" stroke="url(#pr-ribbon-g)" strokeWidth="8.5" strokeLinecap="round" />
-      <path d="M8.5 31C11 19 14 9.5 18.5 9.5" fill="none" stroke="#fff" strokeOpacity="0.45" strokeWidth="1.6" strokeLinecap="round" />
-      <path d="M41 13c1.5-3 3-4.5 4.5-4.5" fill="none" stroke="#fff" strokeOpacity="0.5" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
-
 export function ArrowRight({ className = "" }) {
   return (
     <svg className={`pr-flip ${className}`} viewBox="0 0 24 24" {...stroke} strokeWidth="2.2" aria-hidden="true">
@@ -118,6 +100,14 @@ export function Bars({ className = "" }) {
       <rect x="4" y="17" width="6" height="11" rx="1.6" />
       <rect x="13" y="11" width="6" height="17" rx="1.6" />
       <rect x="22" y="4" width="6" height="24" rx="1.6" />
+    </svg>
+  );
+}
+
+export function WhatsApp({ className = "" }) {
+  return (
+    <svg className={className} viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+      <path d="M16 3C9 3 3.3 8.7 3.3 15.7c0 2.5.7 4.8 1.9 6.8L3 29l6.7-2.1c1.9 1 4 1.6 6.3 1.6 7 0 12.7-5.7 12.7-12.7S23 3 16 3Zm0 23c-2 0-3.9-.5-5.5-1.5l-.4-.2-4 1.2 1.2-3.9-.3-.4c-1.1-1.7-1.7-3.7-1.7-5.8C5.3 9.8 10.1 5 16 5s10.7 4.8 10.7 10.7S21.9 26 16 26Zm5.9-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.3-.7.1-1-.5-2-1.1-2.9-2-.7-.7-1.3-1.5-1.8-2.4-.2-.3 0-.5.1-.7.2-.2.4-.4.6-.6.2-.2.2-.4.1-.7-.1-.3-.7-1.8-1-2.4-.2-.5-.4-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5 0 1.5 1.1 2.9 1.2 3.1.1.2 1.9 3 4.6 4.3 2.7 1.3 2.7.9 3.2.8.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.4Z" />
     </svg>
   );
 }

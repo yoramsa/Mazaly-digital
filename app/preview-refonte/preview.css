@@ -41,14 +41,14 @@
 .pr-wrap-bleed { padding-inline: 0; }
 
 /* ---------- Bandeau d'aperçu (hors flux sticky, ne recouvre rien) ---------- */
-.pr-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 14px; padding: 7px 14px; background: #1c0d38; color: #efe3ff; font-size: 12.5px; font-weight: 600; text-align: center; }
-.pr-bar a { color: #e0c4ff; text-underline-offset: 3px; }
+.pr-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0 14px; padding: 4px 14px; background: #1c0d38; color: #efe3ff; font-size: 13px; font-weight: 600; text-align: center; }
+.pr-bar a { display: inline-flex; align-items: center; min-height: 32px; color: #e0c4ff; text-underline-offset: 3px; }
 
 /* ---------- Header ---------- */
 .pr-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--pr-bg) 88%, transparent); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid transparent; }
 .pr-header-in { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
-.pr-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--pr-title); text-decoration: none; }
-.pr-brand-mark { width: 54px; height: 38px; flex: none; }
+.pr-brand { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; color: var(--pr-title); text-decoration: none; }
+.pr-brand-mark { width: 42px; height: 42px; flex: none; border-radius: 12px; box-shadow: 0 10px 20px -12px rgba(110, 11, 207, 0.8); }
 .pr-brand-name { font-family: var(--font-jakarta), sans-serif; font-weight: 800; font-size: 15px; line-height: 1.02; letter-spacing: 0.01em; }
 .pr-nav { display: none; gap: clamp(18px, 2.6vw, 40px); }
 .pr-nav-link { position: relative; padding-block: 12px; color: var(--pr-ink); font-size: 14px; font-weight: 600; text-decoration: none; white-space: nowrap; transition: color 0.2s; }
@@ -83,15 +83,16 @@
 /* ---------- Hero ---------- */
 .pr-hero { position: relative; isolation: isolate; overflow: hidden; background: radial-gradient(70% 50% at 70% 26%, rgba(214, 168, 255, 0.5), transparent 70%), radial-gradient(60% 40% at 6% 4%, rgba(255, 214, 234, 0.75), transparent 70%), linear-gradient(180deg, #fdf3f8 0%, #fbeef4 100%); }
 .pr-hero .sparkles { z-index: 0; }
-.pr-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding-block: 14px 44px; }
-.pr-hero-visual { width: clamp(200px, 62vw, 330px); margin-inline: auto; perspective: 1000px; animation: prPop 1.2s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.pr-hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr); padding-block: 22px 40px; }
+.pr-hero-visual { position: absolute; z-index: 0; top: 52px; inset-inline-end: calc(-1 * var(--pr-gutter) - 3vw); width: min(60vw, 340px); perspective: 1000px; pointer-events: none; animation: prPop 1.2s 0.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 .pr-hero-float { animation: prFloat 7s ease-in-out infinite; }
 .pr-hero-tilt { transition: transform 0.25s ease-out; transform-style: preserve-3d; will-change: transform; }
 .pr-hero-tilt img { display: block; width: 100%; height: auto; }
-.pr-hero-copy { min-width: 0; }
-.pr-eyebrow { margin: 0 0 14px; color: var(--pr-title); font-size: 13px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; }
+.pr-hero-copy { position: relative; z-index: 1; min-width: 0; }
+.pr-hero-title { max-width: min(56%, 8em); }
+.pr-eyebrow { margin: 0 0 14px; color: var(--pr-title); font-size: 14px; font-weight: 800; letter-spacing: 0.28em; text-transform: uppercase; }
 [dir="rtl"] .pr-eyebrow { letter-spacing: 0.04em; font-size: 15px; }
-.pr-hero-title { margin: 0 0 18px; color: var(--pr-title); font-size: clamp(40px, 11.6vw, 56px); font-weight: 800; line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
+.pr-hero-title { margin: 0 0 18px; color: var(--pr-title); font-size: clamp(38px, 10.6vw, 54px); font-weight: 800; line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
 [dir="rtl"] .pr-hero-title { line-height: 1.06; letter-spacing: -0.015em; }
 .pr-accent { background-image: linear-gradient(100deg, #6e0bcf 0%, #8f2cf5 40%, #b93cf2 62%, #ff8a7a 86%, #6e0bcf 100%); background-size: 240% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: prShine 9s ease-in-out infinite alternate; }
 .pr-hero-lead { max-width: 31em; margin: 0 0 28px; color: var(--pr-body); font-size: 17px; font-weight: 500; line-height: 1.6; }
@@ -100,6 +101,12 @@
 .pr-in-2 { animation-delay: 0.08s; }
 .pr-in-3 { animation-delay: 0.2s; }
 .pr-in-4 { animation-delay: 0.32s; }
+
+/* ---------- Bandeau défilant (hérité de l'ancien site, version claire) ---------- */
+.pr-ticker { overflow: hidden; border-block: 1px solid var(--pr-line); background: #fbf1f5; padding-block: 14px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+.pr-ticker-track { display: flex; align-items: center; gap: 28px; width: max-content; padding-inline-end: 28px; color: rgba(36, 35, 42, 0.78); font-size: clamp(18px, 2.4vw, 24px); font-weight: 800; letter-spacing: -0.02em; white-space: nowrap; animation: prTicker 46s linear infinite; }
+.pr-ticker-track i { color: var(--pr-violet-2); font-style: normal; font-size: 0.8em; }
+[dir="rtl"] .pr-ticker-track { animation-name: prTickerRtl; }
 
 /* ---------- Titres de section ---------- */
 .pr-head { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; margin-bottom: clamp(18px, 3vw, 36px); }
@@ -124,7 +131,7 @@
 .pr-round-btn svg { width: 20px; height: 20px; }
 .pr-round-btn:disabled { opacity: 0.35; cursor: default; }
 .pr-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 0; }
-.pr-dot { display: grid; place-items: center; width: 26px; height: 32px; padding: 0; border: 0; background: none; cursor: pointer; }
+.pr-dot { display: grid; place-items: center; width: 28px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; }
 .pr-dot::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: rgba(255, 255, 255, 0.32); transition: background 0.25s, transform 0.25s, width 0.25s; }
 .pr-dot.is-active::before { width: 22px; border-radius: 6px; background: #fff; }
 .pr-carousel-light .pr-dot::before { background: rgba(110, 11, 207, 0.25); }
@@ -137,7 +144,7 @@
 .pr-card-creation { background: linear-gradient(150deg, #fef5f3 0%, #fcdfd8 62%, #f6c2c0 100%); }
 .pr-card-experiences { background: linear-gradient(150deg, #f5eefe 0%, #e9d8fe 60%, #ddb1fe 100%); }
 .pr-card-art { padding: 14px 12px 0; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.pr-card-art img { display: block; width: 100%; height: auto; mix-blend-mode: multiply; -webkit-mask-image: radial-gradient(75% 80% at 50% 52%, #000 58%, transparent 100%); mask-image: radial-gradient(75% 80% at 50% 52%, #000 58%, transparent 100%); }
+.pr-card-art img { display: block; width: 100%; height: auto; filter: drop-shadow(0 18px 18px rgba(90, 30, 160, 0.3)); }
 .pr-card-body { padding: 4px 24px 0; }
 .pr-card-icon { width: 34px; height: 34px; margin-bottom: 10px; color: var(--pr-violet); }
 .pr-card-title { margin: 0 0 8px; color: var(--pr-title); font-size: 28px; font-weight: 800; letter-spacing: -0.03em; }
@@ -152,7 +159,7 @@
 .pr-work::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255, 255, 255, 0.16) 50%, transparent 65%); transform: translateX(130%); transition: transform 0.9s ease; pointer-events: none; }
 .pr-work-media { position: relative; aspect-ratio: 4 / 3.3; overflow: hidden; background: #1d0e38; }
 .pr-work-media img { object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1); }
-.pr-work-badge { position: absolute; z-index: 1; top: 14px; inset-inline-start: 14px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.65); border-radius: 999px; background: rgba(14, 6, 28, 0.45); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: #fff; font-size: 11.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
+.pr-work-badge { position: absolute; z-index: 1; top: 14px; inset-inline-start: 14px; padding: 6px 12px; border: 1px solid rgba(255, 255, 255, 0.65); border-radius: 999px; background: rgba(14, 6, 28, 0.55); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: #fff; font-size: 12.5px; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; }
 [dir="rtl"] .pr-work-badge { letter-spacing: 0.02em; font-size: 13px; }
 .pr-work-body { padding: 18px 20px 22px; }
 .pr-work-title { margin: 0 0 6px; color: #fff; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
@@ -185,7 +192,7 @@
 /* ---------- Contact ---------- */
 .pr-contact { padding-block: clamp(8px, 2vw, 24px) clamp(40px, 7vw, 88px); background: var(--pr-bg); }
 .pr-banner-card { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: minmax(0, 1fr); gap: 18px; padding: 22px 20px 20px; border: 1px solid #efdcee; border-radius: 28px; background: linear-gradient(100deg, #f7e5f4 0%, #f7ebf7 50%, #f3e6f8 100%); box-shadow: 0 30px 60px -40px rgba(110, 40, 160, 0.45); }
-.pr-banner-art { display: none; width: clamp(140px, 15vw, 200px); height: auto; }
+.pr-banner-art { display: none; width: clamp(140px, 15vw, 200px); height: auto; filter: drop-shadow(0 14px 14px rgba(90, 30, 160, 0.3)); }
 .pr-banner-title { margin: 0; color: var(--pr-title); font-size: clamp(24px, 6.4vw, 30px); font-weight: 800; line-height: 1.15; letter-spacing: -0.03em; }
 .pr-banner-title span { display: block; }
 .pr-banner-lead { margin: 8px 0 0; color: var(--pr-body); font-size: 16px; font-weight: 500; line-height: 1.5; }
@@ -196,19 +203,23 @@
 .pr-form-wrap { max-width: 720px; margin: 28px auto 0; scroll-margin-top: 96px; }
 .pr-form-wrap[hidden] { display: none; }
 
-/* WhatsApp flottant (composant existant) aux couleurs de la maquette — s'efface sur le contact et le pied de page */
-.pr-root .wa-float { bottom: 18px; inset-inline-end: 16px; width: 58px; height: 58px; border: 3px solid #fff; background: #25d366; box-shadow: 0 16px 30px -10px rgba(16, 120, 60, 0.55); transition: opacity 0.25s, visibility 0.25s, scale 0.25s, translate 0.2s, box-shadow 0.2s; }
-.pr-root .wa-float svg { width: 28px; height: 28px; }
-.pr-wa-hidden .wa-float { opacity: 0; visibility: hidden; scale: 0.8; pointer-events: none; }
+/* WhatsApp flottant (composant de production) : même bouton, aux couleurs de la maquette ;
+   il s'efface sur le contact et le pied de page pour ne jamais recouvrir de contenu utile. */
+.pr-root .wa-dock { bottom: max(16px, env(safe-area-inset-bottom, 0px)); inset-inline-end: 16px; transition: opacity 0.25s, visibility 0.25s, transform 0.25s; }
+.pr-root .wa-float { width: 58px; height: 58px; border: 3px solid #fff; box-shadow: 0 16px 30px -10px rgba(16, 120, 60, 0.55); }
+@media (max-width: 1099px) { .pr-legal .wa-dock { display: none; } }
+.pr-legal .wa-bubble { display: none; }
+.pr-wa-hidden .wa-dock { opacity: 0; visibility: hidden; transform: translateY(12px) scale(0.9); pointer-events: none; }
 
 /* Formulaire existant (ContactForm, classes mz-*) en version claire */
 .pr-light-zone .mz-contact-form { background: #fff; border: 1px solid var(--pr-line); box-shadow: 0 30px 70px -40px rgba(60, 40, 90, 0.3); }
 .pr-light-zone .mz-contact-form-title { color: var(--pr-title); font-family: var(--pr-font); font-size: 26px; font-weight: 800; letter-spacing: -0.02em; }
 .pr-light-zone .mz-form-label { color: var(--pr-text); font-size: 14px; }
-.pr-light-zone .mz-form-input { background: #faf4fb; border-color: #dccbe6; color: var(--pr-ink); font-family: var(--pr-font); font-size: 16px; }
+.pr-light-zone .mz-form-input { background-color: #faf4fb; border-color: #dccbe6; color: var(--pr-ink); font-family: var(--pr-font); font-size: 16px; }
 .pr-light-zone .mz-form-input::placeholder { color: #7a6c8c; }
 .pr-light-zone .mz-form-input:focus { border-color: var(--pr-violet-2); box-shadow: 0 0 0 4px rgba(139, 44, 245, 0.18); }
-.pr-light-zone .mz-form-select { background-image: linear-gradient(45deg, transparent 50%, var(--pr-violet) 50%), linear-gradient(135deg, var(--pr-violet) 50%, transparent 50%); }
+.pr-light-zone .mz-form-select { background-image: linear-gradient(45deg, transparent 50%, var(--pr-violet) 50%), linear-gradient(135deg, var(--pr-violet) 50%, transparent 50%); background-position: calc(100% - 22px) center, calc(100% - 17px) center; background-size: 5px 5px, 5px 5px; background-repeat: no-repeat; }
+[dir="rtl"] .pr-light-zone .mz-form-select { background-position: 22px center, 17px center; }
 .pr-light-zone .mz-form-select option { background: #fff; color: var(--pr-ink); }
 .pr-light-zone .mz-form-error { color: #be123c; font-size: 14px; }
 .pr-light-zone .mz-form-done { background: #fff; border: 1px solid var(--pr-line); }
@@ -220,9 +231,9 @@
 /* ---------- Pied de page ---------- */
 .pr-footer { padding-block: 28px 36px; border-top: 1px solid var(--pr-line); background: var(--pr-bg); }
 .pr-footer-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; color: var(--pr-text); font-size: 14.5px; }
-.pr-footer-brand { color: var(--pr-text); text-decoration: none; }
+.pr-footer-brand { display: inline-flex; align-items: center; min-height: 44px; color: var(--pr-text); text-decoration: none; }
 .pr-footer-legal { display: flex; flex-wrap: wrap; gap: 4px 20px; }
-.pr-footer-legal a { display: inline-flex; align-items: center; min-height: 36px; color: var(--pr-text); text-decoration: none; }
+.pr-footer-legal a { display: inline-flex; align-items: center; min-height: 44px; color: var(--pr-text); text-decoration: none; }
 .pr-footer-legal a:hover { color: var(--pr-violet); text-decoration: underline; }
 
 /* ---------- Pages secondaires (légales) ---------- */
@@ -302,9 +313,9 @@
 /* Univers + approche : grille / ligne dès 900 px */
 @media (min-width: 900px) {
   .pr-hero-grid { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); align-items: center; gap: 24px; min-height: min(72vh, 580px); padding-block: clamp(28px, 4vw, 56px); }
-  .pr-hero-visual { order: 2; width: 100%; max-width: 580px; margin-inline: 0 auto; }
+  .pr-hero-visual { position: relative; top: auto; inset-inline-end: auto; order: 2; width: 100%; max-width: 580px; margin-inline: 0 auto; pointer-events: auto; }
   [dir="rtl"] .pr-hero-visual { margin-inline: auto 0; }
-  .pr-hero-title { font-size: clamp(52px, 6.2vw, 92px); }
+  .pr-hero-title { max-width: none; font-size: clamp(52px, 6.2vw, 92px); }
   .pr-hero-lead { font-size: clamp(17px, 1.35vw, 19px); }
 
   .pr-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 1.8vw, 24px); overflow: visible; scroll-snap-type: none; }
@@ -334,7 +345,9 @@
 
 /* Mobile étroit */
 @media (max-width: 759px) {
-  .pr-brand-mark { width: 48px; height: 34px; }
+  .pr-root .wa-bubble { display: none; }
+  .pr-eyebrow { letter-spacing: 0.18em; }
+  .pr-brand-mark { width: 38px; height: 38px; border-radius: 11px; }
   .pr-brand-name { font-size: 14px; }
   .pr-hero-actions .pr-btn { flex: 1 1 100%; }
   .pr-contact .pr-banner-card { padding: 22px 18px 18px; }
@@ -348,10 +361,12 @@
 @keyframes prRise { from { opacity: 0; transform: translateY(24px); filter: blur(8px); } to { opacity: 1; transform: none; filter: none; } }
 @keyframes prPop { from { opacity: 0; transform: scale(0.9) rotate(-4deg); } to { opacity: 1; transform: none; } }
 @keyframes prShine { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@keyframes prTicker { to { transform: translateX(-50%); } }
+@keyframes prTickerRtl { to { transform: translateX(50%); } }
 @keyframes prDrop { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .pr-in, .pr-hero-visual, .pr-hero-float, .pr-accent, .pr-menu, .pr-lang-menu { animation: none !important; }
+  .pr-in, .pr-hero-visual, .pr-hero-float, .pr-accent, .pr-menu, .pr-lang-menu, .pr-ticker-track { animation: none !important; }
   .pr-js .rv { opacity: 1; transform: none; transition: none; }
   .pr-card, .pr-card-art, .pr-card-go, .pr-work, .pr-work::after, .pr-work-media img, .pr-btn, .pr-nav-link::after, .pr-aside-arrow, .pr-dot::before, .pr-back, .pr-legal-others a { transition: none !important; }
   .pr-root .wa-float { transition: none; }
