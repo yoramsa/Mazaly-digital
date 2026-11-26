@@ -16,19 +16,27 @@ const heebo = Heebo({
   display: "swap",
 });
 
-export const metadata = {
+export const previewMetadata = {
   title: "Aperçu refonte — Mazaly Digital",
   description: "Aperçu interne de la nouvelle direction artistique de Mazaly Digital. Page non publique, non indexée.",
   robots: { index: false, follow: false, nocache: true },
 };
 
-export const viewport = {
+export const previewViewport = {
   themeColor: "#fcf4f7",
+  colorScheme: "light",
 };
 
-export default function PreviewRefonteLayout({ children }) {
+// Marque le document comme "JS actif" avant le premier rendu : les révélations au scroll
+// ne masquent le contenu que si le script peut ensuite le faire apparaître.
+const jsFlag = "document.documentElement.classList.add('pr-js')";
+
+export function PreviewHtml({ lang, dir, children }) {
   return (
-    <html lang="fr" dir="ltr">
+    <html lang={lang} dir={dir} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: jsFlag }} />
+      </head>
       <body className={`${jakarta.variable} ${heebo.variable}`}>{children}</body>
     </html>
   );
